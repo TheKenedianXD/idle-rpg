@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+npm-debug.log*
+
+# Typescript
+*.tsbuildinfo
+
+# PHP / Composer
+/vendor/
+/var/
+/.env.local
+/.env.dev
+/.env.test
+/.env.prod
+.phpunit.result.cache
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# IDE
+.idea/
+/.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
