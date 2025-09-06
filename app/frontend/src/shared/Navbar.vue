@@ -7,26 +7,24 @@
         </svg>
       </button>
       <span class="text-lg font-semibold">Idle RPG</span>
-      <span class="text-zinc-500">alpha</span>
     </div>
 
     <nav class="flex items-center gap-4 text-sm">
-      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">TOS</a>
+      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">{{$t("TOS")}}</a>
       <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">Discord</a>
-      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">Changelog</a>
+      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">{{$t("Changelog")}}</a>
+      <LanguageSwitcherDropdown />
 
       <span v-if="auth.isAuthenticated" class="hidden sm:inline text-zinc-400">|</span>
-      <button v-if="auth.isAuthenticated" class="text-zinc-300 hover:text-white cursor-pointer transition" @click="logout">
-        Logout
-      </button>
+      <button v-if="auth.isAuthenticated" class="text-zinc-300 hover:text-white cursor-pointer transition" @click="logout">{{$t("Logout")}}</button>
     </nav>
 
     <div v-if="showConfirm" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/60">
       <div class="bg-zinc-900 border border-zinc-800 rounded-md p-4 w-[90%] max-w-sm">
-        <p class="mb-4">Opravdu se chceš odhlásit?</p>
+        <p class="mb-4">{{$t("AreYouSureYouWantToLogout")}}?</p>
         <div class="flex justify-end gap-2">
-          <button class="btn" @click="showConfirm=false">Zrušit</button>
-          <button class="btn btn-primary" @click="confirmLogout">Odhlásit</button>
+          <button class="btn" @click="showConfirm=false">{{$t("Cancel")}}</button>
+          <button class="btn btn-primary" @click="confirmLogout">{{$t("Logout")}}</button>
         </div>
       </div>
     </div>
@@ -39,6 +37,8 @@ import { useRouter } from 'vue-router';
 import { useUiStore } from '@/stores/ui';
 import {ref} from "vue";
 
+import LanguageSwitcherDropdown from '@/components/LanguageSwitcherDropdown.vue';
+
 const auth = useAuthStore();
 const router = useRouter();
 const ui = useUiStore();
@@ -47,6 +47,6 @@ const showConfirm = ref(false);
 function logout() { showConfirm.value = true; }
 function confirmLogout() {
   auth.logout();
-  router.push('/');
+  router.push({name: 'landing'})
 }
 </script>

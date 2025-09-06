@@ -1,18 +1,17 @@
 ﻿<template>
   <div class="space-y-4">
-    <h2 class="text-2xl font-semibold">O hře</h2>
+    <h2 class="text-2xl font-semibold">{{$t("AboutGame")}}</h2>
     <p class="text-zinc-300">
-      Idle/incremental RPG inspirované Melvor Idle, Shakes & Fidget a Cookie Clicker
-      Mise, aréna, dungeony, crafting, guildy a prestige/ascend pro trvalé bonusy.
+      {{$t("GameDescription.Description")}}
     </p>
 
     <ul class="grid sm:grid-cols-2 gap-3">
-      <li class="card">✅ Žádné klikačky – čisté systémy a progres</li>
-      <li class="card">🗡️ Seed-based boj (deterministické RNG)</li>
-      <li class="card">🏰 Dungeony & aréna (PvP ±10% CP)</li>
-      <li class="card">🛠️ Crafting s raritami a upgrady +1…+9</li>
-      <li class="card">🪙 Idle ekonomika (mine, sawmill…)</li>
-      <li class="card">🔁 Ascend: reset → essence → multiplikátor</li>
+      <li class="card">✅ {{$t("GameDescription.Card1")}}</li>
+      <li class="card">🗡️ {{$t("GameDescription.Card2")}}</li>
+      <li class="card">🏰 {{$t("GameDescription.Card3")}}</li>
+      <li class="card">🛠️ {{$t("GameDescription.Card4")}}</li>
+      <li class="card">🪙 {{$t("GameDescription.Card5")}}</li>
+      <li class="card">🔁 {{$t("GameDescription.Card6")}}</li>
     </ul>
   </div>
 </template>

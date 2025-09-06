@@ -3,14 +3,12 @@
     <Navbar />
 
     <div class="flex">
-      <!-- desktop sidebar -->
       <aside
           class="hidden lg:block w-[260px] shrink-0 border-r border-zinc-800 p-3 lg:p-4
                sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
         <Sidebar />
       </aside>
 
-      <!-- CONTENT -->
       <main class="flex-1 min-w-0 p-4 lg:p-6">
         <RouterView v-slot="{ Component }">
           <KeepAlive include="DashboardPage">
@@ -20,7 +18,6 @@
       </main>
     </div>
 
-    <!-- MOBILE OVERLAY + DRAWER do body -->
     <Teleport to="body">
       <transition name="fade">
         <div
@@ -37,7 +34,6 @@
            bg-zinc-950 border-r border-zinc-800 p-3 flex flex-col lg:hidden"
             @keyup.esc="ui.close()"
         >
-          <!-- top: title + close -->
           <div class="flex items-center justify-between mb-4">
             <div class="text-lg font-semibold">Menu</div>
             <button class="p-2 rounded-md hover:bg-zinc-800" @click="ui.close()" aria-label="Close menu">
@@ -47,16 +43,14 @@
             </button>
           </div>
 
-          <!-- nav items -->
           <div class="flex-1 overflow-y-auto">
             <Sidebar />
           </div>
 
-          <!-- bottom links (only mobile) -->
           <div class="border-t border-zinc-800 pt-3 mt-3 space-y-2 text-sm">
-            <a class="block text-zinc-300 text-center hover:text-white" href="#">TOS</a>
+            <a class="block text-zinc-300 text-center hover:text-white" href="#">{{$t("TOS")}}</a>
             <a class="block text-zinc-300 text-center hover:text-white" href="#">Discord</a>
-            <a class="block text-zinc-300 text-center hover:text-white" href="#">Changelog</a>
+            <a class="block text-zinc-300 text-center hover:text-white" href="#">{{$t("Changelog")}}</a>
           </div>
         </aside>
       </transition>

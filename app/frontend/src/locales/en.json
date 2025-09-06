@@ -1,0 +1,56 @@
+﻿{
+  "AboutGame": "About game",
+  "AreYouSureYouWantToLogout": "Are you sure you want to logout",
+  "ByContinuingYouAgreeTo": "By continuing you agree to",
+  "Cancel": "Cancel",
+  "Changelog": "Changelog",
+  "CreateAccount": "Create account",
+  "GameDescription": {
+    "Card1": "No more clicking - pure systems and progress",
+    "Card2": "PvP arena that feels realtime",
+    "Card3": "Dungeons to feel the conquer",
+    "Card4": "Complex gear and upgrade systems",
+    "Card5": "Idle economy (gathering, processing, crafting)",
+    "Card6": "Ascend your character to wake up even more strength in you",
+    "Description": "Idle/Incremental RPG inspired by many great browser games. Battle through arena, conquer dungeons or finish missions. On your travel idle gathering, processing and crafting!"
+  },
+  "Login": "Login",
+  "LoginOrCreateAccountToStartTheGrind": "Login or create an account to start the grind",
+  "Logout": "Logout",
+  "Nickname": "Nickname",
+  "Password": "Password",
+  "RegisterIn": "Registration",
+  "TOS": "Terms of Service",
+  "app": {
+    "brand": "Idle RPG"
+  },
+  "nav": {
+    "arena": "Arena (PvP)",
+    "character": "Character",
+    "crafting": "Crafting",
+    "dashboard": "Dashboard",
+    "dungeons": "Dungeons",
+    "gathering": "Gathering",
+    "groups": {
+      "combat": "Combat",
+      "economy": "Economy",
+      "social": "Social"
+    },
+    "guild": "Guild",
+    "missions": "Missions",
+    "processing": "Processing",
+    "shop": "Shop"
+  },
+  "page": {
+    "arena": "Arena",
+    "character": "Character",
+    "crafting": "Crafting",
+    "dashboard": "Dashboard",
+    "dungeons": "Dungeons",
+    "gathering": "Gathering",
+    "guild": "Guild",
+    "missions": "Missions",
+    "processing": "Processing",
+    "shop": "Shop"
+  }
+}
