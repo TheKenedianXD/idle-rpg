@@ -1,39 +1,39 @@
 ﻿{
+  "AreYouSureYouWantToLogout": "Are you sure you want to logout",
+  "Cancel": "Cancel",
+  "Changelog": "Changelog",
+  "Logout": "Logout",
+  "TOS": "Terms of Service",
+  "app": {
+    "brand": "Idle RPG"
+  },
   "nav": {
-    "dashboard": "Dashboard",
-    "character": "Character",
-    "shop": "Shop",
     "arena": "Arena (PvP)",
-    "missions": "Missions",
+    "character": "Character",
+    "crafting": "Crafting",
+    "dashboard": "Dashboard",
     "dungeons": "Dungeons",
     "gathering": "Gathering",
-    "processing": "Processing",
-    "crafting": "Crafting",
-    "guild": "Guild",
     "groups": {
       "combat": "Combat",
       "economy": "Economy",
       "social": "Social"
-    }
-  },
-  "app": {
-    "brand": "Idle RPG"
-  },
-  "page": {
-    "dashboard": "Dashboard",
-    "missions": "Missions",
-    "arena": "Arena",
-    "character": "Character",
-    "crafting": "Crafting",
-    "dungeons": "Dungeons",
-    "gathering": "Gathering",
+    },
     "guild": "Guild",
+    "missions": "Missions",
     "processing": "Processing",
     "shop": "Shop"
   },
-  "TOS": "Terms of Service",
-  "Changelog": "Changelog",
-  "Logout": "Logout",
-  "AreYouSureYouWantToLogout": "Are you sure you want to logout",
-  "Cancel": "Cancel"
+  "page": {
+    "arena": "Arena",
+    "character": "Character",
+    "crafting": "Crafting",
+    "dashboard": "Dashboard",
+    "dungeons": "Dungeons",
+    "gathering": "Gathering",
+    "guild": "Guild",
+    "missions": "Missions",
+    "processing": "Processing",
+    "shop": "Shop"
+  }
 }
