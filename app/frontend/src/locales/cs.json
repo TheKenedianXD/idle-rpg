@@ -1,8 +1,25 @@
 ﻿{
+  "AboutGame": "O hře",
   "AreYouSureYouWantToLogout": "Opravdu se chcete odhlásit",
+  "ByContinuingYouAgreeTo": "Pokračováním souhlasíš s",
   "Cancel": "Zrušit",
   "Changelog": "Seznam změn",
+  "CreateAccount": "Založit účet",
+  "GameDescription": {
+    "Card1": "Žádné klikačky – čisté systémy a progres",
+    "Card2": "PvP aréna, která působí realtimovým dojmem",
+    "Card3": "Dungeony, kde pocítíte dobývání",
+    "Card4": "Komplexní vybavení a vylepšovací systémy",
+    "Card5": "Idle ekonomika (těžba, zpracování, výroba)",
+    "Card6": "Ascenduj a probuď v sobě ještě větší sílu",
+    "Description": "Idle/inkrementální RPG inspirované mnoha skvělými prohlížečovými hrami. Probojujte se arénou, dobývajte dungeony nebo plňte mise. Na cestách sbírejte, zpracovávejte a craftujte!"
+  },
+  "Login": "Přihlášení",
+  "LoginOrCreateAccountToStartTheGrind": "Přihlaš se a nebo zaregistruj a začni grind",
   "Logout": "Odhlásit",
+  "Nickname": "Přezdívka",
+  "Password": "Heslo",
+  "RegisterIn": "Registrace",
   "TOS": "Podmínky služby",
   "app": {
     "brand": "Idle RPG"

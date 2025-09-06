@@ -1,7 +1,43 @@
-﻿<script setup lang="ts">
+﻿<template>
+  <div class="w-full max-w-md space-y-6">
+    <div>
+      <h1 class="text-3xl font-semibold">{{$t("app.brand")}}</h1>
+      <p class="text-zinc-400">{{$t("LoginOrCreateAccountToStartTheGrind")}}!</p>
+    </div>
+
+    <div class="flex gap-2">
+      <button class="btn" :class="tab==='login' ? '' : 'opacity-60'" @click="tab='login'">{{$t("Login")}}</button>
+      <button class="btn" :class="tab==='register' ? '' : 'opacity-60'" @click="tab='register'">{{$t("RegisterIn")}}</button>
+    </div>
+
+    <form class="card space-y-4" @submit.prevent="submit">
+      <div>
+        <label class="block mb-1 text-sm text-zinc-400">{{$t("Nickname")}}</label>
+        <input class="input" v-model="name" :placeholder="t('Nickname')" />
+      </div>
+      <div>
+        <label class="block mb-1 text-sm text-zinc-400">{{$t("Password")}}</label>
+        <input class="input" v-model="password" type="password" placeholder="••••••••" />
+      </div>
+      <button class="btn w-full" type="submit">{{ tab === 'login' ? $t("Login") : $t("CreateAccount") }}</button>
+    </form>
+
+    <div class="flex items-center justify-between text-sm text-zinc-500">
+      <p>
+        {{$t("ByContinuingYouAgreeTo")}}
+        <RouterLink :to="lr({ path: '/tos' })" class="link">{{$t('TOS')}}</RouterLink>.
+      </p>
+      <LanguageSwitcherDropdown />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 import LanguageSwitcherDropdown from '@/components/LanguageSwitcherDropdown.vue';
 import { useLocaleRoute } from '@/composables/useLocaleRoute';
 
@@ -18,37 +54,3 @@ function submit() {
   router.push(lr({ name: 'dashboard' }));
 }
 </script>
-
-<template>
-  <div class="w-full max-w-md space-y-6">
-    <div>
-      <h1 class="text-3xl font-semibold">Idle RPG</h1>
-      <p class="text-zinc-400">Přihlas se nebo si založ účet a začni grindit!</p>
-    </div>
-
-    <div class="flex gap-2">
-      <button class="btn" :class="tab==='login' ? '' : 'opacity-60'" @click="tab='login'">Login</button>
-      <button class="btn" :class="tab==='register' ? '' : 'opacity-60'" @click="tab='register'">Register</button>
-    </div>
-
-    <form class="card space-y-4" @submit.prevent="submit">
-      <div>
-        <label class="block mb-1 text-sm text-zinc-400">Nickname</label>
-        <input class="input" v-model="name" placeholder="PLAYER_NAME" />
-      </div>
-      <div>
-        <label class="block mb-1 text-sm text-zinc-400">Password</label>
-        <input class="input" v-model="password" type="password" placeholder="••••••••" />
-      </div>
-      <button class="btn w-full" type="submit">{{ tab === 'login' ? 'Login' : 'Create account' }}</button>
-    </form>
-
-    <div class="flex items-center justify-between text-sm text-zinc-500">
-      <p>
-        Pokračováním souhlasíš s
-        <RouterLink :to="lr({ path: '/tos' })" class="link"> TOS</RouterLink>.
-      </p>
-      <LanguageSwitcherDropdown />
-    </div>
-  </div>
-</template>

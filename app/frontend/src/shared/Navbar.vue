@@ -47,6 +47,6 @@ const showConfirm = ref(false);
 function logout() { showConfirm.value = true; }
 function confirmLogout() {
   auth.logout();
-  router.push('/');
+  router.push({name: 'landing'})
 }
 </script>
