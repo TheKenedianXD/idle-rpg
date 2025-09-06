@@ -1,4 +1,4 @@
-﻿export type MenuItem = { pathName: string; labelKey: string; icon: string };
+﻿export type MenuItem = { pathName: string; labelKey: string; icon: string; activeTask: boolean; };
 export type MenuGroup = { titleKey?: string; items: MenuItem[] };
 
 import AnvilIcon from '@/assets/icons/menu/anvil.svg';
@@ -15,31 +15,31 @@ import TiedScrollIcon from '@/assets/icons/menu/tied-scroll.svg';
 export const MENU_GROUPS: MenuGroup[] = [
     {
         items: [
-            { pathName: 'dashboard', labelKey: 'nav.dashboard', icon: ScrollUnfurledIcon },
-            { pathName: 'character', labelKey: 'nav.character', icon: CharacterIcon },
-            { pathName: 'shop',      labelKey: 'nav.shop',      icon: ShopIcon }
+            { pathName: 'dashboard', labelKey: 'nav.dashboard', icon: ScrollUnfurledIcon, activeTask: false },
+            { pathName: 'character', labelKey: 'nav.character', icon: CharacterIcon, activeTask: false },
+            { pathName: 'shop',      labelKey: 'nav.shop',      icon: ShopIcon, activeTask: false }
         ]
     },
     {
         titleKey: 'nav.groups.combat',
         items: [
-            { pathName: 'arena',     labelKey: 'nav.arena',    icon: SwordClashIcon },
-            { pathName: 'missions',  labelKey: 'nav.missions', icon: TiedScrollIcon },
-            { pathName: 'dungeons',  labelKey: 'nav.dungeons', icon: DungeonIcon }
+            { pathName: 'missions',  labelKey: 'nav.missions', icon: TiedScrollIcon, activeTask: true },
+            { pathName: 'dungeons',  labelKey: 'nav.dungeons', icon: DungeonIcon, activeTask: false },
+            { pathName: 'arena',     labelKey: 'nav.arena',    icon: SwordClashIcon, activeTask: false },
         ]
     },
     {
         titleKey: 'nav.groups.economy',
         items: [
-            { pathName: 'gathering',  labelKey: 'nav.gathering',  icon: PickaxeIcon },
-            { pathName: 'processing', labelKey: 'nav.processing', icon: FurnaceIcon },
-            { pathName: 'crafting',   labelKey: 'nav.crafting',   icon: AnvilIcon }
+            { pathName: 'gathering',  labelKey: 'nav.gathering',  icon: PickaxeIcon, activeTask: false },
+            { pathName: 'processing', labelKey: 'nav.processing', icon: FurnaceIcon, activeTask: false },
+            { pathName: 'crafting',   labelKey: 'nav.crafting',   icon: AnvilIcon, activeTask: false }
         ]
     },
     {
         titleKey: 'nav.groups.social',
         items: [
-            { pathName: 'guild', labelKey: 'nav.guild', icon: BarracksTentIcon }
+            { pathName: 'guild', labelKey: 'nav.guild', icon: BarracksTentIcon, activeTask: false }
         ]
     }
 ];

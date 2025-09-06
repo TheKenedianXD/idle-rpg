@@ -25,7 +25,7 @@
     <div class="flex items-center justify-between text-sm text-zinc-500">
       <p>
         {{$t("ByContinuingYouAgreeTo")}}
-        <RouterLink :to="lr({ path: '/tos' })" class="link">{{$t('TOS')}}</RouterLink>.
+        <RouterLink :to="lr({ path: '#' })" class="link">{{$t('TOS')}}</RouterLink>.
       </p>
       <LanguageSwitcherDropdown />
     </div>

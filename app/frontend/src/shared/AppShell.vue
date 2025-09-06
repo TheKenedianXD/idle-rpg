@@ -48,9 +48,9 @@
           </div>
 
           <div class="border-t border-zinc-800 pt-3 mt-3 space-y-2 text-sm">
-            <a class="block text-zinc-300 text-center hover:text-white" href="#">{{$t("TOS")}}</a>
-            <a class="block text-zinc-300 text-center hover:text-white" href="#">Discord</a>
-            <a class="block text-zinc-300 text-center hover:text-white" href="#">{{$t("Changelog")}}</a>
+            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("TOS")}}</a>
+            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">Discord</a>
+            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("Changelog")}}</a>
           </div>
         </aside>
       </transition>

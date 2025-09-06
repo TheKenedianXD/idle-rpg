@@ -9,13 +9,17 @@
         <li v-for="m in group.items" :key="m.pathName">
           <RouterLink
               :to="m.pathName"
-              class="group flex items-center gap-3 px-3 py-1.5 rounded-sm text-zinc-300 hover:text-white
-                   border-l-2 transition"
+              class="group flex items-center justify-between gap-3 px-3 py-1.5 rounded-sm text-zinc-300 hover:text-white border-l-2 transition"
               :class="isActive(m.pathName)
-              ? 'bg-zinc-800/60 border-indigo-500'
-              : 'border-transparent hover:bg-zinc-800/40'">
-            <component :is="m.icon" class="inline-block w-[1em] h-[1em] text-zinc-300 group-hover:text-white" aria-hidden="true"/>
-            <span class="truncate">{{ $t(m.labelKey) }}</span>
+                ? 'bg-zinc-800/60 border-indigo-500'
+                : 'border-transparent hover:bg-zinc-800/40'">
+
+            <div class="flex items-center gap-3">
+              <component :is="m.icon" class="inline-block w-[1em] h-[1em] text-zinc-300 group-hover:text-white"/>
+              <span class="truncate">{{ $t(m.labelKey) }}</span>
+            </div>
+
+            <TimeIcon v-if="m.activeTask" class="inline-block w-[1em] h-[1em] text-zinc-300 group-hover:text-white"/>
           </RouterLink>
         </li>
       </ul>
@@ -26,6 +30,8 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { MENU_GROUPS } from '@/config/menu';
+
+import TimeIcon from '@/assets/icons/resources/time.svg';
 
 const route = useRoute();
 const isActive = (name: string) => route.name === name;

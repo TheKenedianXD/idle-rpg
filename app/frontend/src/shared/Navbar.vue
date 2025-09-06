@@ -10,9 +10,9 @@
     </div>
 
     <nav class="flex items-center gap-4 text-sm">
-      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">{{$t("TOS")}}</a>
-      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">Discord</a>
-      <a class="hidden sm:inline text-white underline hover:text-indigo-400 transition" href="#">{{$t("Changelog")}}</a>
+      <a class="hidden sm:inline text-white hover:text-indigo-400 transition" href="#">{{$t("TOS")}}</a>
+      <a class="hidden sm:inline text-white hover:text-indigo-400 transition" href="#">Discord</a>
+      <a class="hidden sm:inline text-white hover:text-indigo-400 transition" href="#">{{$t("Changelog")}}</a>
       <LanguageSwitcherDropdown />
 
       <span v-if="auth.isAuthenticated" class="hidden sm:inline text-zinc-400">|</span>

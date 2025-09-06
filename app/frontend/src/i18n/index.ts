@@ -19,13 +19,12 @@ export const i18n = createI18n<[MessageSchema], Locale, false>({
 const loaded = new Set<Locale>();
 
 export async function loadLocale(loc: Locale) {
-    if (loaded.has(loc)) {
-        i18n.global.locale.value = loc;   // 👈 .value
-        return;
+    if (!loaded.has(loc)) {
+        const msgs = await import(`../locales/${loc}.json`);
+        i18n.global.setLocaleMessage(loc, msgs.default);
+        loaded.add(loc);
     }
-    const msgs = await import(`../locales/${loc}.json`);
-    i18n.global.setLocaleMessage(loc, msgs.default);
-    i18n.global.locale.value = loc;     // 👈 .value
-    loaded.add(loc);
+
+    i18n.global.locale.value = loc;
     document.documentElement.lang = loc;
 }
