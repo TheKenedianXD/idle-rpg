@@ -1,0 +1,39 @@
+﻿{
+  "nav": {
+    "dashboard": "Dashboard",
+    "character": "Character",
+    "shop": "Shop",
+    "arena": "Arena (PvP)",
+    "missions": "Missions",
+    "dungeons": "Dungeons",
+    "gathering": "Gathering",
+    "processing": "Processing",
+    "crafting": "Crafting",
+    "guild": "Guild",
+    "groups": {
+      "combat": "Combat",
+      "economy": "Economy",
+      "social": "Social"
+    }
+  },
+  "app": {
+    "brand": "Idle RPG"
+  },
+  "page": {
+    "dashboard": "Dashboard",
+    "missions": "Missions",
+    "arena": "Arena",
+    "character": "Character",
+    "crafting": "Crafting",
+    "dungeons": "Dungeons",
+    "gathering": "Gathering",
+    "guild": "Guild",
+    "processing": "Processing",
+    "shop": "Shop"
+  },
+  "TOS": "Terms of Service",
+  "Changelog": "Changelog",
+  "Logout": "Logout",
+  "AreYouSureYouWantToLogout": "Are you sure you want to logout",
+  "Cancel": "Cancel"
+}

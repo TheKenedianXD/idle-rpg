@@ -1,0 +1,39 @@
+﻿{
+  "nav": {
+    "dashboard": "Přehled",
+    "character": "Postava",
+    "shop": "Obchod",
+    "arena": "Aréna (PvP)",
+    "missions": "Mise",
+    "dungeons": "Dungeony",
+    "gathering": "Sběr",
+    "processing": "Zpracování",
+    "crafting": "Výroba",
+    "guild": "Guilda",
+    "groups": {
+      "combat": "Boj",
+      "economy": "Ekonomika",
+      "social": "Sociální"
+    }
+  },
+  "app": {
+    "brand": "Idle RPG"
+  },
+  "page": {
+    "dashboard": "Přehled",
+    "missions": "Mise",
+    "arena": "Aréna",
+    "character": "Postava",
+    "crafting": "Výroba",
+    "dungeons": "Dungeony",
+    "gathering": "Sběr",
+    "guild": "Guilda",
+    "processing": "Zpracování",
+    "shop": "Obchod"
+  },
+  "TOS": "Podmínky služby",
+  "Changelog": "Seznam změn",
+  "Logout": "Odhlásit",
+  "AreYouSureYouWantToLogout": "Opravdu se chcete odhlásit",
+  "Cancel": "Zrušit"
+}

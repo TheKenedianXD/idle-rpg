@@ -1,4 +1,25 @@
-﻿<template>
+﻿<script setup lang="ts">
+import { ref } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
+import LanguageSwitcherDropdown from '@/components/LanguageSwitcherDropdown.vue';
+import { useLocaleRoute } from '@/composables/useLocaleRoute';
+
+const tab = ref<'login' | 'register'>('login');
+const name = ref(''); const password = ref('');
+const auth = useAuthStore();
+const router = useRouter();
+const lr = useLocaleRoute();
+
+function submit() {
+  if (tab.value === 'login') auth.loginMock(name.value.trim() || 'PLAYER_NAME');
+  else auth.registerMock(name.value.trim() || 'NEW_PLAYER');
+
+  router.push(lr({ name: 'dashboard' }));
+}
+</script>
+
+<template>
   <div class="w-full max-w-md space-y-6">
     <div>
       <h1 class="text-3xl font-semibold">Idle RPG</h1>
@@ -22,27 +43,12 @@
       <button class="btn w-full" type="submit">{{ tab === 'login' ? 'Login' : 'Create account' }}</button>
     </form>
 
-    <p class="text-sm text-zinc-500">
-      Pokračováním souhlasíš s <a class="link" href="#">TOS</a>.
-    </p>
+    <div class="flex items-center justify-between text-sm text-zinc-500">
+      <p>
+        Pokračováním souhlasíš s
+        <RouterLink :to="lr({ path: '/tos' })" class="link"> TOS</RouterLink>.
+      </p>
+      <LanguageSwitcherDropdown />
+    </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-import { useAuthStore } from '@/stores/auth';
-import { useRouter } from 'vue-router';
-
-const tab = ref<'login' | 'register'>('login');
-const name = ref('');
-const password = ref('');
-
-const auth = useAuthStore();
-const router = useRouter();
-
-function submit() {
-  if (tab.value === 'login') auth.loginMock(name.value.trim() || 'PLAYER_NAME');
-  else auth.registerMock(name.value.trim() || 'NEW_PLAYER');
-  router.push('/game');
-}
-</script>
