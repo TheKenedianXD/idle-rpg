@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="relative">
+  <div class="relative z-[9999999]">
     <button
         class="inline-flex items-center gap-2 rounded border border-zinc-700 px-2 py-1 text-sm hover:bg-zinc-800"
         :aria-expanded="open ? 'true' : 'false'"
@@ -7,29 +7,27 @@
         @click="toggle"
     >
       <span>{{ currentLabel }}</span>
-      <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path d="M5.25 7.5l4.5 4.5 4.5-4.5" />
-      </svg>
+      <DropdownIcon class="inline-block w-[1.0em] h-[1.0em]" aria-hidden="true"/>
     </button>
 
     <div
         v-if="open"
         ref="menu"
-        class="absolute right-0 z-50 mt-2 w-40 rounded border border-zinc-700 bg-zinc-900/95 p-1 shadow-lg backdrop-blur"
+        class="absolute right-0 z-50 mt-2 w-40 rounded border border-zinc-700
+         bg-zinc-950 shadow-lg isolate mix-blend-normal"
         role="menu"
     >
       <button
           v-for="loc in LOCALE_ORDER"
           :key="loc"
-          class="flex w-full items-center justify-between rounded px-2 py-1.5 text-left text-sm hover:bg-zinc-800"
+          class="flex w-full items-center justify-between rounded px-2 py-1.5
+           text-left text-sm bg-transparent hover:bg-zinc-800"
           :data-active="route.params.locale === loc"
           role="menuitem"
           @click="pick(loc)"
       >
         <span>{{ LOCALE_LABEL[loc] }}</span>
-        <svg v-if="route.params.locale === loc" class="h-4 w-4 opacity-70" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4A1 1 0 1 1 4.707 9.293L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0z" clip-rule="evenodd"/>
-        </svg>
+          <CheckmarkIcon v-if="route.params.locale === loc" class="inline-block w-[1.0em] h-[1.0em]" aria-hidden="true"/>
       </button>
     </div>
   </div>
@@ -40,6 +38,9 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { LOCALE_LABEL, LOCALE_ORDER, SUPPORTED, type Locale, storeLocale } from '@/i18n/detectors';
 import { loadLocale } from '@/i18n';
+
+import CheckmarkIcon from '@/assets/icons/ui/checkmark.svg'
+import DropdownIcon from '@/assets/icons/ui/dropdown.svg'
 
 const route = useRoute();
 const router = useRouter();

@@ -1,175 +1,165 @@
 ﻿<template>
   <div class="flex flex-col gap-6">
     <div class="flex flex-col gap-6 lg:flex-row">
-      <!-- LEFT -->
       <div class="flex-1 flex flex-col gap-6">
-        <!-- PLAYER CARD -->
-        <section class="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
-          <header class="flex flex-col items-start mb-3 gap-1 lg:flex-row lg:items-start lg:justify-between">
-            <h2 class="text-xl font-semibold">JohnnyMachete</h2>
-
-            <div class="flex flex-col items-start text-left
-              lg:items-end lg:text-right">
-              <span class="text-zinc-400">{{$t("Level")}} 107</span>
-              <span class="text-zinc-500 text-sm">Ascend 1</span>
-            </div>
-          </header>
-
-          <!-- Level -->
-          <div class="space-y-2">
-            <span class="text-sm font-medium text-violet-500"><StarIcon class="inline-block w-[1.2em] h-[1.2em]" aria-hidden="true"/>{{$t("Experience")}}</span>
-            <ProgressBar :min="0" :max="360540" :value="284524" color-class="bg-violet-500"/>
-          </div>
-
-          <!-- Stats -->
-          <div class="mt-4 flex text-zinc-300">
-            <div class="flex-1 text-center">
-              <div class="text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> {{$t("Gold")}}</div>
-              <div>2 391</div>
-            </div>
-
-            <div class="flex-1 text-center">
-              <div class="text-sm text-cyan-500"><SoulIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> {{$t("Essence")}}</div>
-              <div>23</div>
-            </div>
-
-            <div class="flex-1 text-center">
-              <div class="text-sm text-red-500"><DeathJuiceIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> {{$t("Fame")}}</div>
-              <div>7 254</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CURRENT ACTIVITY -->
-        <section class="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
-          <h2 class="text-2xl font-semibold mb-3">{{$t("CurrentActivity")}}</h2>
-
-          <div class="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
-            <div class="flex items-center justify-between">
-              <div>
-                <span><TiedScrollIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("Mission")}}: </span>
-                <span class="text-zinc-300"> {{$t("ScoutTheForest")}}</span>
-              </div>
-              <div class="flex items-center gap-2 text-zinc-300">
-                <span><TimeIcon class="inline-block w-[1.2em] h-[1.2em]" aria-hidden="true"/>24:51</span>
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <div class="text-sm text-zinc-500 mb-1">{{$t("Progress")}}</div>
-              <div class="flex items-center gap-3 text-zinc-300">
-                <ProgressBar class="mt-2" :min="0" :max="1800" :value="1491" :show-label="false" :show-min-max="false" :show-value="false" color-class="bg-amber-500"/>
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <div class="text-sm text-zinc-500 mb-1">{{$t("Reward")}}</div>
-              <div class="flex items-center gap-3 text-zinc-300">
-                <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 5</span>
-                <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-violet-500"><StarIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 15</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PlayerCard :player="player" />
+        <CurrentActivityCard :activity="currentActivity" />
       </div>
 
-      <!-- RIGHT (QUESTS) -->
-      <aside class="lg:w-[380px] rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
-        <h2 class="text-2xl font-semibold mb-4">{{$t("Quests")}}</h2>
-
-        <div class="space-y-6">
-          <!-- Daily Quests -->
-          <div>
-            <div class="mb-2 font-medium text-zinc-300">{{$t("DailyQuests")}}</div>
-
-            <div class="flex items-center justify-between text-sm">
-              <div class="flex items-center gap-2">
-                <span><TiedScrollIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("CompleteXMissions", { count:5 })}}</span>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 100</span>
-            </div>
-            <ProgressBar class="mt-2" :min="0" :max="4" :value="3" />
-          </div>
-
-          <div>
-            <div class="flex items-center justify-between text-sm">
-              <div class="flex items-center gap-2">
-                <span><SwordClashIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("WinXPvPBattles", {count: 1})}}</span>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-violet-500"><StarIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 75</span>
-            </div>
-            <ProgressBar class="mt-2" :min="0" :max="1" :value="0" />
-          </div>
-
-          <!-- Tutorials -->
-          <div class="space-y-4">
-            <div class="font-medium text-zinc-300">{{$t("BeginnersQuests")}}</div>
-
-            <div class="flex items-center justify-between text-sm">
-              <div class="flex items-center gap-2">
-                <span><ShopIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("VisitTheShop")}}</span>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 5</span>
-            </div>
-
-            <div>
-              <div class="flex items-center justify-between text-sm">
-                <div class="flex items-center gap-2">
-                  <span><PickaxeIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("ToGather")}} 5x {{$t("OakWood")}}</span>
-                </div>
-                <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 35</span>
-              </div>
-              <ProgressBar class="mt-2" :min="0" :max="5" :value="3" />
-            </div>
-
-            <div class="flex items-center justify-between text-sm">
-              <div class="flex items-center gap-2">
-                <span><CharacterIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("UpgradeYourWeapon")}}</span>
-              </div>
-              <span class="inline-flex space-x-2">
-                <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-yellow-500"><TwoCoinsIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 5</span>
-                <span class="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/60 px-2 py-1 text-sm text-violet-500"><StarIcon class="inline-block w-[1.5em] h-[1.5em]" aria-hidden="true"/> 5</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </aside>
+      <QuestPanel
+          class="lg:w-[380px]"
+          :quests="quests"
+          :loading="loadingQuests"
+          @refresh="fetchQuests"
+          @claim-all="claimAll"
+          @open="openQuest"
+          @claim="claimQuest"
+          @track="trackQuest"
+      />
     </div>
 
-    <!--ACTIVITY LOG-->
-    <section class="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
-      <h2 class="text-2xl font-semibold mb-3">{{$t("ActivityLog")}}</h2>
-      <ul class="space-y-2 text-zinc-200">
-        <li class="flex flex-col sm:flex-row sm:justify-between sm:items-center rounded border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-sm">
-          <span><PickaxeIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("YouGathered")}} 5x {{$t("IronOre")}}</span>
-          <span class="text-zinc-500 text-right sm:ml-4">14:14:33</span>
-        </li>
-
-        <li class="flex flex-col sm:flex-row sm:justify-between sm:items-center rounded border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-sm">
-          <span><TiedScrollIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("YouCompletedMission")}}: {{$t("SearchTheCave")}}</span>
-          <span class="text-zinc-500 text-right sm:ml-4">9:38:42</span>
-        </li>
-
-        <li class="flex flex-col sm:flex-row sm:justify-between sm:items-center rounded border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-sm">
-          <span><SwordClashIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/> {{$t("YouLostPvPMatchAgainst")}}: DarthSnoob47</span>
-          <span class="text-zinc-500 text-right sm:ml-4">0:57:11</span>
-        </li>
-      </ul>
-    </section>
+    <ActivityLog :entries="logEntries" />
   </div>
 </template>
 
 <script setup lang="ts">
-import ProgressBar from '@/components/ui/ProgressBar.vue'
+import { ref } from 'vue';
 
-import TwoCoinsIcon from '@/assets/icons/resources/two-coins.svg';
-import SoulIcon from '@/assets/icons/resources/soul.svg';
-import DeathJuiceIcon from '@/assets/icons/resources/death-juice.svg';
-import StarIcon from '@/assets/icons/resources/star.svg';
-import TimeIcon from '@/assets/icons/resources/time.svg';
-import CharacterIcon from '@/assets/icons/menu/character.svg';
-import PickaxeIcon from '@/assets/icons/menu/pickaxe.svg';
-import ShopIcon from '@/assets/icons/menu/shop.svg';
-import SwordClashIcon from '@/assets/icons/menu/sword-clash.svg';
-import TiedScrollIcon from '@/assets/icons/menu/tied-scroll.svg';
+import type {
+  PlayerSummary,
+  CurrentActivity,
+  Quest,
+  ActivityLogEntry,
+} from '@/types/dashboard';
+
+import PlayerCard from '@/components/dashboard/PlayerCard.vue';
+import CurrentActivityCard from '@/components/dashboard/CurrentActivityCard.vue';
+import QuestPanel from '@/components/dashboard/QuestPanel.vue';
+import ActivityLog from '@/components/dashboard/ActivityLog.vue';
+
+const player = ref<PlayerSummary>({
+  nickname: 'JohnnyMachete',
+  level: 107,
+  ascend: 1,
+  gold: 2391,
+  essence: 23,
+  fame: 7254,
+  xp: { current: 284_524, required: 360_540 },
+});
+
+const currentActivity = ref<CurrentActivity>({
+  type: 'mission',
+  nameI18nKey: 'ScoutTheForest',
+  durationSec: 1800,
+  remainingSec: 1491,
+  progress: 309,
+  rewards: [
+    { kind: 'gold', amount: 5 },
+    { kind: 'xp', amount: 15 },
+  ],
+});
+
+const loadingQuests = ref(false);
+
+const quests = ref<Quest[]>([
+  {
+    id: 'q1',
+    kind: 'daily',
+    titleKey: 'CompleteXMissions',
+    titleParams: { count: 5 },
+    progress: 3,
+    goal: 4,
+    rewards: [{ kind: 'gold', amount: 100 }],
+  },
+  {
+    id: 'q2',
+    kind: 'daily',
+    titleKey: 'WinXPvPBattles',
+    titleParams: { count: 1 },
+    progress: 0,
+    goal: 1,
+    rewards: [{ kind: 'xp', amount: 75 }],
+  },
+  {
+    id: 'q3',
+    kind: 'beginner',
+    titleKey: 'VisitTheShop',
+    progress: 0,
+    goal: 1,
+    rewards: [{ kind: 'gold', amount: 5 }],
+  },
+  {
+    id: 'q4',
+    kind: 'beginner',
+    titleKey: 'ToGather',
+    titleParams: { count: 5, itemKey: 'OakWood' },
+    progress: 3,
+    goal: 5,
+    rewards: [{ kind: 'gold', amount: 35 }],
+  },
+  {
+    id: 'q5',
+    kind: 'beginner',
+    titleKey: 'UpgradeYourWeapon',
+    progress: 0,
+    goal: 1,
+    rewards: [
+      { kind: 'gold', amount: 5 },
+      { kind: 'xp', amount: 5 },
+    ],
+  },
+]);
+
+const logEntries = ref<ActivityLogEntry[]>([
+  {
+    id: 'a1',
+    time: '14:14:33',
+    icon: 'pickaxe',
+    textKey: 'YouGathered',
+    textParams: { count: 5, item: 'IronOre' },
+  },
+  {
+    id: 'a2',
+    time: '11:37:24',
+    icon: 'sword',
+    textKey: 'YouWonPvPMatchAgainst',
+    textParams: { opponent: 'EidamWaiter' },
+  },
+  {
+    id: 'a3',
+    time: '09:38:42',
+    icon: 'scroll',
+    textKey: 'YouCompletedMission',
+    textParams: { mission: 'SearchTheCave' },
+  },
+  {
+    id: 'a4',
+    time: '00:57:11',
+    icon: 'sword',
+    textKey: 'YouLostPvPMatchAgainst',
+    textParams: { opponent: 'DarthSnoob47' },
+  },
+]);
+
+function fetchQuests() {
+  loadingQuests.value = true;
+  // TODO: await store.fetchQuests()
+  setTimeout(() => (loadingQuests.value = false), 600);
+}
+function claimAll() {
+  // TODO: store.claimAll()
+  console.log('claim all');
+}
+function openQuest(id: string) {
+  // TODO: router push / modal
+  console.log('open quest', id);
+}
+function claimQuest(id: string) {
+  // TODO: store.claim(id)
+  console.log('claim quest', id);
+}
+function trackQuest(id: string) {
+  // TODO: store.track(id)
+  console.log('track quest', id);
+}
 </script>

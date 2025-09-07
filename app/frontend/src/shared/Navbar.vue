@@ -1,5 +1,5 @@
 ﻿<template>
-  <header class="sticky top-0 h-14 border-b border-zinc-800 flex items-center justify-between px-4">
+  <header class="sticky top-0 z-[100] h-14 border-b border-zinc-800 flex bg-zinc-900 items-center justify-between px-4">
     <div class="flex items-center gap-3">
       <button class="lg:hidden inline-flex items-center gap-2 text-white underline hover:text-indigo-400 transition" @click="ui.toggle()" aria-label="Open menu" :aria-expanded="ui.sidebarOpen">
         <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
