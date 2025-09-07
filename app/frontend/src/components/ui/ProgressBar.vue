@@ -41,9 +41,9 @@ const props = defineProps({
   colorClass:      { type: String, default: 'bg-green-500' },
   backgroundClass: { type: String, default: 'bg-zinc-800' },
 
-  showLabel:  { type: Boolean, default: true },  // procenta pod barem
-  showMinMax: { type: Boolean, default: true },  // min/max pod barem
-  showValue:  { type: Boolean, default: true },  // číslo na baru
+  showLabel:  { type: Boolean, default: true },
+  showMinMax: { type: Boolean, default: true },
+  showValue:  { type: Boolean, default: true },
 })
 
 const formatNumber = (num: number) => {
