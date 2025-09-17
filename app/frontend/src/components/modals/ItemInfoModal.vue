@@ -23,7 +23,6 @@
         <ItemCard :item="item" size="6rem"/>
         <div class="text-sm text-zinc-300">
 
-          <!-- Weapon dmg -->
           <template v-if="item.type==='weapon'">
             <p>
               {{$t("Damage")}}: {{ item.minDmg }}–{{ item.maxDmg }}
@@ -34,7 +33,6 @@
             </p>
           </template>
 
-          <!-- Armor -->
           <template v-else-if="item.type==='armor'">
             <p>
               {{$t("Armor")}}: {{ item.armor }}
@@ -45,12 +43,10 @@
             </p>
           </template>
 
-          <!-- Material -->
           <template v-else>
             <p>{{$t("Quantity")}}: {{ item.qty }}</p>
           </template>
 
-          <!-- staty -->
           <ul v-if="allStats" class="mt-2 space-y-0.5">
             <li v-for="(val,k) in allStats" :key="k"
                 :class="compareEnabled ? statClass(val, diffs[k], equippedStats[k]) : 'text-zinc-300'">
@@ -81,14 +77,11 @@
         {{$t("MaxUpgrade")}}
       </div>
 
-      <!-- Akce -->
       <div class="flex flex-wrap gap-2 pt-1">
-        <!-- EQUIP -->
         <button v-if="item.type!=='material'" class="btn btn-primary cursor-pointer" @click="toggleEquip()">
           {{ isEquipped ? $t("Unequip") : $t('Equip') }}
         </button>
 
-        <!-- UPGRADE -->
         <button
             v-if="item.type!=='material' && (item.upgrade ?? 0) < store.maxUpgrade"
             class="btn btn-secondary cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
@@ -98,7 +91,6 @@
           {{$t("Upgrade")}}
         </button>
 
-        <!-- SELL -->
         <div v-if="item.type==='material'" class="flex items-center gap-2">
           <input
               type="number"
@@ -135,7 +127,6 @@
         </div>
       </div>
 
-      <!-- Messages -->
       <p v-if="message" :class="messageOk ? 'text-emerald-400' : 'text-red-400'" class="text-xs">
         {{ $t(message) }}
       </p>
@@ -181,10 +172,8 @@ const sellAllPrice = computed(() => {
   return (item.value as MaterialItem).qty * 1;
 });
 
-// --- stats ---
 const itemStats = computed<Record<string, number>>(() => (item.value as any)?.stats ?? {});
 
-// vybavené staty
 const equippedStats = computed<Record<string, number>>(() => {
   if (!compareEnabled.value || !item.value) return {};
   if (item.value.type === 'weapon') {
@@ -212,7 +201,6 @@ const equippedStats = computed<Record<string, number>>(() => {
   return (it as any)?.stats ?? {};
 });
 
-// sjednocení všech statů
 const allStats = computed(() => {
   const keys = new Set([
     ...Object.keys(itemStats.value ?? {}),
@@ -221,7 +209,6 @@ const allStats = computed(() => {
   return Object.fromEntries([...keys].map(k => [k, itemStats.value[k] ?? 0]));
 });
 
-// diff
 const diffs = computed(() => {
   const out: Record<string, number> = {};
   for (const k in allStats.value) {
@@ -230,7 +217,6 @@ const diffs = computed(() => {
   return out;
 });
 
-// --- dmg / armor compare ---
 const dmgDiff = computed(() => {
   if (!compareEnabled.value || !item.value || item.value.type !== 'weapon') return 0;
   const avg = (a:number,b:number)=> (a+b)/2;
@@ -271,7 +257,6 @@ const dmgDiffText = computed(() => {
     const oh = store.equipment.offHand ? store.inventory.find(i => i.id === store.equipment.offHand) as WeaponItem : null;
     const mhDiff = Math.round(newAvg - (mh ? avg(mh.minDmg, mh.maxDmg) : 0));
     const ohDiff = Math.round(newAvg - (oh ? avg(oh.minDmg, oh.maxDmg) : 0));
-    // pokud jsou oba rozdíly 0 → žádná závorka
     if (mhDiff === 0 && ohDiff === 0) return '';
     return `${mhDiff >= 0 ? '+' : ''}${mhDiff} / ${ohDiff >= 0 ? '+' : ''}${ohDiff}`;
   }
@@ -288,7 +273,6 @@ const armorDiff = computed(() => {
   return (item.value.armor ?? 0) - ((eq as any)?.armor ?? 0);
 });
 
-// --- helpers ---
 function statClass(val: number, diff: number, equippedVal?: number) {
   if (!compareEnabled.value) return 'text-zinc-300';
   if (val === 0 && equippedVal) return 'text-red-400';
@@ -304,16 +288,14 @@ function formatDiff(diff: number, k: string) {
     const mhDiff = (itemStats.value[k] ?? 0) - (mh?.stats?.[k] ?? 0);
     const ohDiff = (itemStats.value[k] ?? 0) - (oh?.stats?.[k] ?? 0);
 
-    // oba 0 → vrať prázdno
     if (mhDiff === 0 && ohDiff === 0) return '';
     return `${mhDiff >= 0 ? '+' : ''}${mhDiff} / ${ohDiff >= 0 ? '+' : ''}${ohDiff}`;
   }
 
-  if (diff === 0) return ''; // stejné → žádná závorka
+  if (diff === 0) return '';
   return `${diff > 0 ? '+' : ''}${diff}`;
 }
 
-// --- původní věci (upgrade/sell) ---
 const currentUp = computed(() => item.value?.upgrade ?? 0);
 const successChance = computed(() => Math.max(100 - currentUp.value * 6, 20));
 const chanceColor = computed(() =>

@@ -5,7 +5,6 @@
     <div class="overflow-auto pr-1 grow overscroll-contain nice-scroll"
          :style="{ maxHeight: `calc(100vh - 200px)` }">
 
-      <!-- wrapper má šířku = min(100%, šířka 8 slotů) a je vycentrovaný -->
       <div class="mx-auto"
            :style="{
              '--slot': slotSize,
@@ -15,7 +14,6 @@
              width: `min(100%, calc(var(--maxcols) * var(--slot) + (var(--maxcols) - 1) * var(--gap)))`
            }">
 
-        <!-- responsive grid: pevná šířka sloupce = var(--slot), počet = co se vejde -->
         <div class="grid justify-center"
              :style="{
                gridTemplateColumns: 'repeat(auto-fill, minmax(var(--slot), var(--slot)))',
@@ -54,8 +52,8 @@ const props = withDefaults(
     {
       slotSize: '5.5rem',
       captionHeight: '1.25rem',
-      maxCols: 8,           // MAX sloupců na velkých displejích
-      gap: '0.75rem',       // ~ gap-3
+      maxCols: 8,
+      gap: '0.75rem',
     }
 );
 defineEmits<{ (e:'openItem', id: string): void }>();

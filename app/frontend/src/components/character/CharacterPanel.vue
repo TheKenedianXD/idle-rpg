@@ -3,7 +3,6 @@
     <h2 v-if="showTitle" class="text-xl font-semibold mb-3">{{ title }}</h2>
 
     <div class="mx-auto" style="--slot: clamp(52px, 7vw, 80px); --gap: clamp(8px, 1.4vw, 16px);">
-      <!-- vycentrovaná mřížka, šířka = obsah -->
       <div class="w-full flex justify-center">
         <div class="grid w-fit gap-[var(--gap)]"
              style="grid-template-columns: var(--slot) var(--slot) var(--slot); grid-auto-rows: var(--slot);">

@@ -23,7 +23,6 @@ const upgrade = (k: keyof typeof store.stats) => store.tryUpgradeStat(k);
     <h3 class="text-lg font-semibold mb-3">{{ $t("CharacterStats") }}</h3>
     <dl class="space-y-2">
 
-      <!-- Strength -->
       <StatRow
           :label="$t('Strength')"
           :total="totals.strength"
@@ -39,7 +38,6 @@ const upgrade = (k: keyof typeof store.stats) => store.tryUpgradeStat(k);
         </template>
       </StatRow>
 
-      <!-- Agility -->
       <StatRow
           :label="$t('Agility')"
           :total="totals.agility"
@@ -57,7 +55,6 @@ const upgrade = (k: keyof typeof store.stats) => store.tryUpgradeStat(k);
         </template>
       </StatRow>
 
-      <!-- Endurance -->
       <StatRow
           :label="$t('Endurance')"
           :total="totals.endurance"

@@ -41,6 +41,6 @@ export interface CurrentActivity {
     nameI18nKey: string;
     durationSec: number;
     remainingSec: number;
-    progress: number; // 0..duration
+    progress: number;
     rewards: Reward[];
 }

@@ -19,7 +19,6 @@
     </div>
 
     <Teleport to="body">
-      <!-- overlay -->
       <transition name="fade">
         <div
             v-show="ui.sidebarOpen"
@@ -27,7 +26,6 @@
             @click="ui.closeSidebar()"/>
       </transition>
 
-      <!-- mobilní sidebar -->
       <transition name="slide">
         <aside
             v-show="ui.sidebarOpen"
@@ -87,7 +85,6 @@ router.afterEach(() => {
   ui.closeSidebar();
 });
 
-// lock scroll při otevřeném draweru
 watch(() => ui.sidebarOpen, (open) => {
   document.documentElement.style.overflow = open ? 'hidden' : '';
 });

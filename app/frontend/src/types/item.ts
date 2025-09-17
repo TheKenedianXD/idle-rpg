@@ -20,10 +20,10 @@ export interface StatBlock {
 
 export interface DerivedStats {
     maxHealth: number;
-    blockChance: number; // %
-    critChance: number;  // %
-    attackDelay: number; // s
-    critDamage: number;  // %
+    blockChance: number;
+    critChance: number;
+    attackDelay: number;
+    critDamage: number;
     attackPower: number;
     [key: string]: number | undefined;
 }

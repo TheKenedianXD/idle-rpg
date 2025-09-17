@@ -69,7 +69,6 @@ export const useCharacterStore = defineStore('character', {
             { id: uid(), name: 'AmuletOfVigor', type: 'armor', slot: 'amulet', armor: 2, rarity: 'epic',
                 armorClass: 'light' as const, stats: { strength: 1, endurance: 1 }, desc: '' },
 
-            // MATERIALS
             { id: uid(), name: 'Wood',          type: 'material', materialKind: 'wood',         rarity: 'common', qty: 37 },
             { id: uid(), name: 'EssenceShard', type: 'material', materialKind: 'essenceShard', rarity: 'epic',   qty: 103 },
         ] as Item[],
@@ -105,11 +104,11 @@ export const useCharacterStore = defineStore('character', {
         },
         totalStats: (s) => {
             const sum: Required<StatBlock> = { strength:0, agility:0, endurance:0,};
-            // base
+
             sum.strength     += s.stats.strength;
             sum.agility      += s.stats.agility;
             sum.endurance    += s.stats.endurance;
-            // equipment bonuses
+
             Object.values(s.equipment).forEach(id => {
                 const it = s.inventory.find(i => i.id === id);
                 const st = (it as any)?.stats as StatBlock | undefined;
@@ -133,10 +132,10 @@ export const useCharacterStore = defineStore('character', {
                     return sum;
                 }, 0);
 
-            // derived stats weight
+
             const derivedScore =
                 derived.maxHealth / 10 +
-                (1 / derived.attackDelay) * 20 + // vyšší speed = lepší → 1/attackDelay
+                (1 / derived.attackDelay) * 20 +
                 derived.critChance * 2 +
                 derived.critDamage / 10 +
                 derived.blockChance * 2;
@@ -187,10 +186,6 @@ export const useCharacterStore = defineStore('character', {
         },
 
         unequip(slot: ArmorSlot | WeaponSlot) { (this.equipment as any)[slot] = undefined; },
-        unequipByItem(itemId: string) {
-            const slot = this.slotOfItem(itemId) as ArmorSlot | WeaponSlot | undefined;
-            if (!slot) return false; (this.equipment as any)[slot] = undefined; return true;
-        },
 
         tryUpgradeItem(itemId: string) {
             const it = this.inventory.find(i => i.id === itemId);

@@ -106,7 +106,6 @@ function completedCount(list: Quest[]) {
   return list.filter(q => q.progress >= q.goal).length;
 }
 
-// volitelné záložky – kdybys chtěl filtrovat třeba Daily/Beginner/All/Completed
 const tabs = [
   { key:'all',       label:'All' },
   { key:'daily',     label:'DailyQuests' },

@@ -51,7 +51,6 @@ const props = defineProps<{
   kind: 'armor' | 'weapon';
   slot: ArmorSlot | WeaponSlot;
   label: string;
-  /** velikost čtverce, např. '4rem' – CharacterPanel ji dodá responsivně */
   size?: string;
 }>();
 const emit = defineEmits<{

@@ -7,21 +7,18 @@
   >
     <component :is="iconComp" :class="iconClass" />
 
-    <!-- upgrade -->
     <span v-if="item.upgrade && item.upgrade > 0"
           class="absolute top-1.5 right-1.5 text-sm px-2 py-0.5 rounded-md
                  bg-black/45 border border-white/10 backdrop-blur-[1px]">
       +{{ item.upgrade }}
     </span>
 
-    <!-- levý spodní badge: armor L/S/T nebo weapon One./Two./Off. -->
     <span v-if="leftBadgeText"
           class="absolute bottom-1.5 left-1.5 text-[10px] leading-none px-1.5 py-0.5 rounded-md
                  bg-black/45 border border-white/10 backdrop-blur-[1px]">
       {{ $t(leftBadgeText) }}
     </span>
 
-    <!-- pravý spodní badge: materiál qty -->
     <span v-if="materialQtyText"
           class="absolute bottom-1.5 right-1.5 text-xs leading-none px-1.5 py-0.5 rounded-md
                  bg-black/45 border border-white/10 backdrop-blur-[1px]">
@@ -50,7 +47,6 @@ const boxStyle = computed(() =>
 );
 const iconClass = computed(() => 'w-10 h-10 md:w-11 md:h-11 text-zinc-200');
 
-/** ikona */
 const iconComp = computed(() => {
   if (props.item.type === 'material') {
     return iconForItem(props.item);
@@ -58,7 +54,6 @@ const iconComp = computed(() => {
   return iconForItem(props.item);
 });
 
-/** Armor: L/S/T (Lig./Med./Hea.) */
 const armorLetter = computed<string | null>(() => {
   if (props.item.type !== 'armor') return null;
   const cls = (props.item as any).armorClass as 'light'|'medium'|'heavy'|undefined;
@@ -67,7 +62,6 @@ const armorLetter = computed<string | null>(() => {
   return map[cls] ?? null;
 });
 
-/** Weapon: One./Two./Off. dle WeaponHand */
 const weaponHandText = computed<string | null>(() => {
   if (props.item.type !== 'weapon') return null;
   const hand = (props.item as any).hand as 'oneHand'|'twoHand'|'offHandOnly'|undefined;
@@ -76,10 +70,8 @@ const weaponHandText = computed<string | null>(() => {
   return map[hand] ?? null;
 });
 
-/** levý badge = armor L/S/T nebo zbraň One./Two./Off. */
 const leftBadgeText = computed(() => armorLetter.value ?? weaponHandText.value);
 
-/** materiál qty (99+) */
 const materialQtyText = computed<string | null>(() => {
   if (props.item.type !== 'material') return null;
   const q = (props.item as any).qty as number | undefined;

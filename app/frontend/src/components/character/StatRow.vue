@@ -34,7 +34,6 @@
       </button>
     </div>
 
-    <!-- tooltip -->
     <div
         v-if="show"
         class="absolute left-0 bottom-full mb-1 z-50 w-56 text-xs bg-zinc-800
@@ -63,7 +62,6 @@ const show = ref(false);
 const isDesktop = window.matchMedia("(hover: hover)").matches;
 
 function toggleTooltip() {
-  // Na desktopu řeší hover → klik ignorujeme
   if (!isDesktop) show.value = !show.value;
 }
 </script>

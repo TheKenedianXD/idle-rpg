@@ -8,7 +8,6 @@
       </div>
     </header>
 
-    <!-- XP Progress -->
     <div class="space-y-2">
       <span class="text-sm font-medium text-violet-500 flex items-center gap-1">
         <StarIcon class="inline-block w-[1.2em] h-[1.2em]" aria-hidden="true"/> {{$t("Experience")}}
@@ -16,7 +15,6 @@
       <ProgressBar :min="0" :max="xp.required" :value="xp.current" color-class="bg-violet-500"/>
     </div>
 
-    <!-- Resources -->
     <div class="mt-4 grid grid-cols-3 text-zinc-300 gap-2">
       <div class="text-center">
         <div class="text-sm text-yellow-500 flex items-center justify-center gap-1">

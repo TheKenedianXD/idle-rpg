@@ -132,23 +132,18 @@ const logEntries = ref<ActivityLogEntry[]>([
 
 function fetchQuests() {
   loadingQuests.value = true;
-  // TODO: await store.fetchQuests()
   setTimeout(() => (loadingQuests.value = false), 600);
 }
 function claimAll() {
-  // TODO: store.claimAll()
   console.log('claim all');
 }
 function openQuest(id: string) {
-  // TODO: router push / modal
   console.log('open quest', id);
 }
 function claimQuest(id: string) {
-  // TODO: store.claim(id)
   console.log('claim quest', id);
 }
 function trackQuest(id: string) {
-  // TODO: store.track(id)
   console.log('track quest', id);
 }
 </script>

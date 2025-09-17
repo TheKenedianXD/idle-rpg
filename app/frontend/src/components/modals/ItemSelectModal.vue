@@ -12,7 +12,6 @@
         <button class="text-zinc-400 hover:text-white" @click="close()">✕</button>
       </header>
 
-      <!-- auto-fill grid -->
       <div class="grid grid-cols-[repeat(auto-fill,minmax(5rem,1fr))] gap-3">
         <button
             v-for="it in filtered"

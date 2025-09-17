@@ -22,7 +22,6 @@
       <StatsBox />
     </section>
 
-    <!-- PRAVÁ: větší -->
     <aside class="lg:col-span-7 lg:top-14 self-start">
       <InventoryGrid
           :items="store.unequippedInventory"
@@ -31,7 +30,6 @@
       />
     </aside>
 
-    <!-- Modals ... -->
     <ItemSelectModal
         :open="!!store.pickForSlot"
         :kind="store.pickForSlot?.kind"
