@@ -6,8 +6,8 @@
     </div>
 
     <div class="flex gap-2">
-      <button class="btn" :class="tab==='login' ? '' : 'opacity-60'" @click="tab='login'">{{$t("Login")}}</button>
-      <button class="btn" :class="tab==='register' ? '' : 'opacity-60'" @click="tab='register'">{{$t("RegisterIn")}}</button>
+      <button class="btn cursor-pointer" :class="tab==='login' ? '' : 'opacity-60'" @click="tab='login'">{{$t("Login")}}</button>
+      <button class="btn cursor-pointer" :class="tab==='register' ? '' : 'opacity-60'" @click="tab='register'">{{$t("RegisterIn")}}</button>
     </div>
 
     <form class="card space-y-4" @submit.prevent="submit">
@@ -19,7 +19,7 @@
         <label class="block mb-1 text-sm text-zinc-400">{{$t("Password")}}</label>
         <input class="input" v-model="password" type="password" placeholder="••••••••" />
       </div>
-      <button class="btn w-full" type="submit">{{ tab === 'login' ? $t("Login") : $t("CreateAccount") }}</button>
+      <button class="btn w-full cursor-pointer" type="submit">{{ tab === 'login' ? $t("Login") : $t("CreateAccount") }}</button>
     </form>
 
     <div class="flex items-center justify-between text-sm text-zinc-500">

@@ -20,7 +20,7 @@
     "Card3": "Dungeony, kde pocítíte dobývání",
     "Card4": "Komplexní vybavení a vylepšovací systémy",
     "Card5": "Idle ekonomika (těžba, zpracování, výroba)",
-    "Card6": "Ascenduj a probuď v sobě ještě větší sílu",
+    "Card6": "Po znovuzrení v sobě probudíš ještě větší sílu",
     "Description": "Idle/inkrementální RPG inspirované mnoha skvělými prohlížečovými hrami. Probojujte se arénou, dobývajte dungeony nebo plňte mise. Na cestách sbírejte, zpracovávejte a craftujte!"
   },
   "Gold": "Zlato",
@@ -35,6 +35,7 @@
   "Password": "Heslo",
   "Progress": "Postup",
   "Quests": "Úkoly",
+  "Rebirth": "Znovuzrození",
   "Refresh": "Obnovit",
   "RegisterIn": "Registrace",
   "Reward": "Odměna",

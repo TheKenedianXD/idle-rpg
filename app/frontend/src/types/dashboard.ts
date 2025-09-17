@@ -3,7 +3,7 @@
 export interface PlayerSummary {
     nickname: string;
     level: number;
-    ascend: number;
+    rebirth: number;
     gold: number;
     essence: number;
     fame: number;

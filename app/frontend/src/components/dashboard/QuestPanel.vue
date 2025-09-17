@@ -4,13 +4,13 @@
       <h2 class="text-2xl font-semibold">{{$t("Quests")}}</h2>
 
       <div class="flex items-center gap-2">
-        <button class="px-2 py-1 rounded border border-zinc-800 text-sm hover:bg-zinc-800/60"
+        <button class="px-2 py-1 rounded border border-zinc-800 text-sm hover:bg-zinc-800/60 cursor-pointer"
                 @click="$emit('refresh')"
                 :disabled="loading">
           {{$t("Refresh")}}
         </button>
 
-        <button class="px-2 py-1 rounded border border-green-800 text-sm hover:bg-green-800/60"
+        <button class="px-2 py-1 rounded border border-green-800 text-sm hover:bg-green-800/60 cursor-pointer"
                 @click="$emit('claim-all')"
                 :disabled="!canClaimAny || loading">
           {{$t("ClaimRewards")}}

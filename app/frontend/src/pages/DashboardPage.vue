@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-6">
     <div class="flex flex-col gap-6 lg:flex-row">
       <div class="flex-1 flex flex-col gap-6">
-        <PlayerCard :player="player" />
+        <PlayerCard />
         <CurrentActivityCard :activity="currentActivity" />
       </div>
 
@@ -26,7 +26,6 @@
 import { ref } from 'vue';
 
 import type {
-  PlayerSummary,
   CurrentActivity,
   Quest,
   ActivityLogEntry,
@@ -36,16 +35,6 @@ import PlayerCard from '@/components/dashboard/PlayerCard.vue';
 import CurrentActivityCard from '@/components/dashboard/CurrentActivityCard.vue';
 import QuestPanel from '@/components/dashboard/QuestPanel.vue';
 import ActivityLog from '@/components/dashboard/ActivityLog.vue';
-
-const player = ref<PlayerSummary>({
-  nickname: 'JohnnyMachete',
-  level: 107,
-  ascend: 1,
-  gold: 2391,
-  essence: 23,
-  fame: 7254,
-  xp: { current: 284_524, required: 360_540 },
-});
 
 const currentActivity = ref<CurrentActivity>({
   type: 'mission',

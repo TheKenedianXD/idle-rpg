@@ -1,7 +1,7 @@
 ﻿<template>
   <div class="relative z-[9999999]">
     <button
-        class="inline-flex items-center gap-2 rounded border border-zinc-700 px-2 py-1 text-sm hover:bg-zinc-800"
+        class="inline-flex items-center gap-2 rounded border border-zinc-700 px-2 py-1 text-sm hover:bg-zinc-800 cursor-pointer"
         :aria-expanded="open ? 'true' : 'false'"
         aria-haspopup="menu"
         @click="toggle"
@@ -21,7 +21,7 @@
           v-for="loc in LOCALE_ORDER"
           :key="loc"
           class="flex w-full items-center justify-between rounded px-2 py-1.5
-           text-left text-sm bg-transparent hover:bg-zinc-800"
+           text-left text-sm bg-transparent hover:bg-zinc-800 cursor-pointer"
           :data-active="route.params.locale === loc"
           role="menuitem"
           @click="pick(loc)"

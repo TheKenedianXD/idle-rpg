@@ -20,7 +20,7 @@
     "Card3": "Dungeons to feel the conquer",
     "Card4": "Complex gear and upgrade systems",
     "Card5": "Idle economy (gathering, processing, crafting)",
-    "Card6": "Ascend your character to wake up even more strength in you",
+    "Card6": "Rebirth your character to wake up even more strength in you",
     "Description": "Idle/Incremental RPG inspired by many great browser games. Battle through arena, conquer dungeons or finish missions. On your travel idle gathering, processing and crafting!"
   },
   "Gold": "Gold",
@@ -35,6 +35,7 @@
   "Password": "Password",
   "Progress": "Progress",
   "Quests": "Quests",
+  "Rebirth": "Rebirth",
   "Refresh": "Refresh",
   "RegisterIn": "Registration",
   "Reward": "Reward",
