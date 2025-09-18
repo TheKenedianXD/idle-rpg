@@ -64,9 +64,10 @@ router.beforeEach(async (to) => {
 
     const auth = useAuthStore();
     if (!auth.isAuthenticated && to.fullPath.includes('/game')) {
-        return { name: 'landing', params: { locale: loc } };
+        //return { name: 'landing', params: { locale: loc } }; TODO: remove once login implemented
     }
 
     const titleKey = (to.meta?.titleKey as string | undefined) ?? '';
-    document.title = titleKey ? `${t(`page.${titleKey}`)} — ${t('app.brand')}` : t('app.brand');
+    var pageKey = "page." + titleKey;
+    document.title = titleKey ? `${t(pageKey)} — ${t('app.brand')}` : t('app.brand');
 });

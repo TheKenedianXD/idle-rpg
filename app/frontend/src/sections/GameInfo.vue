@@ -1,17 +1,17 @@
 ﻿<template>
   <div class="space-y-4">
-    <h2 class="text-2xl font-semibold">{{$t("AboutGame")}}</h2>
+    <h2 class="text-2xl font-semibold">{{$t("common.aboutGame")}}</h2>
     <p class="text-zinc-300">
-      {{$t("GameDescription.Description")}}
+      {{$t("gameDescription.description")}}
     </p>
 
     <ul class="grid sm:grid-cols-2 gap-3">
-      <li class="card">✅ {{$t("GameDescription.Card1")}}</li>
-      <li class="card">🗡️ {{$t("GameDescription.Card2")}}</li>
-      <li class="card">🏰 {{$t("GameDescription.Card3")}}</li>
-      <li class="card">🛠️ {{$t("GameDescription.Card4")}}</li>
-      <li class="card">🪙 {{$t("GameDescription.Card5")}}</li>
-      <li class="card">🔁 {{$t("GameDescription.Card6")}}</li>
+      <li class="card">✅ {{$t("gameDescription.card1")}}</li>
+      <li class="card">🗡️ {{$t("gameDescription.card2")}}</li>
+      <li class="card">🏰 {{$t("gameDescription.card3")}}</li>
+      <li class="card">🛠️ {{$t("gameDescription.card4")}}</li>
+      <li class="card">🪙 {{$t("gameDescription.card5")}}</li>
+      <li class="card">🔁 {{$t("gameDescription.card6")}}</li>
     </ul>
   </div>
 </template>

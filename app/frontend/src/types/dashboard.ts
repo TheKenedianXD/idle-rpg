@@ -3,7 +3,7 @@
 export interface PlayerSummary {
     nickname: string;
     level: number;
-    ascend: number;
+    rebirth: number;
     gold: number;
     essence: number;
     fame: number;
@@ -41,6 +41,6 @@ export interface CurrentActivity {
     nameI18nKey: string;
     durationSec: number;
     remainingSec: number;
-    progress: number; // 0..duration
+    progress: number;
     rewards: Reward[];
 }

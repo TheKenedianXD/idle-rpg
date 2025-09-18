@@ -18,7 +18,7 @@ export function normalizeLocale(input?: string | null): Locale {
     const lc = input.toLowerCase();
     if (lc.startsWith('cs')) return 'cs';
     if (lc.startsWith('en')) return 'en';
-    return DEFAULT_LOCALE; // fallback en
+    return DEFAULT_LOCALE;
 }
 
 export function detectBrowserLocale(): Locale {

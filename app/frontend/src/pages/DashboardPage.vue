@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-6">
     <div class="flex flex-col gap-6 lg:flex-row">
       <div class="flex-1 flex flex-col gap-6">
-        <PlayerCard :player="player" />
+        <PlayerCard />
         <CurrentActivityCard :activity="currentActivity" />
       </div>
 
@@ -26,7 +26,6 @@
 import { ref } from 'vue';
 
 import type {
-  PlayerSummary,
   CurrentActivity,
   Quest,
   ActivityLogEntry,
@@ -37,19 +36,9 @@ import CurrentActivityCard from '@/components/dashboard/CurrentActivityCard.vue'
 import QuestPanel from '@/components/dashboard/QuestPanel.vue';
 import ActivityLog from '@/components/dashboard/ActivityLog.vue';
 
-const player = ref<PlayerSummary>({
-  nickname: 'JohnnyMachete',
-  level: 107,
-  ascend: 1,
-  gold: 2391,
-  essence: 23,
-  fame: 7254,
-  xp: { current: 284_524, required: 360_540 },
-});
-
 const currentActivity = ref<CurrentActivity>({
   type: 'mission',
-  nameI18nKey: 'ScoutTheForest',
+  nameI18nKey: 'missions.scoutTheForest',
   durationSec: 1800,
   remainingSec: 1491,
   progress: 309,
@@ -65,7 +54,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q1',
     kind: 'daily',
-    titleKey: 'CompleteXMissions',
+    titleKey: 'quests.completeMissions',
     titleParams: { count: 5 },
     progress: 3,
     goal: 4,
@@ -74,7 +63,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q2',
     kind: 'daily',
-    titleKey: 'WinXPvPBattles',
+    titleKey: 'quests.winPvPBattles',
     titleParams: { count: 1 },
     progress: 0,
     goal: 1,
@@ -83,7 +72,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q3',
     kind: 'beginner',
-    titleKey: 'VisitTheShop',
+    titleKey: 'quests.visitShop',
     progress: 0,
     goal: 1,
     rewards: [{ kind: 'gold', amount: 5 }],
@@ -91,8 +80,8 @@ const quests = ref<Quest[]>([
   {
     id: 'q4',
     kind: 'beginner',
-    titleKey: 'ToGather',
-    titleParams: { count: 5, itemKey: 'OakWood' },
+    titleKey: 'quests.gatherItems',
+    titleParams: { count: 5, itemKey: 'items.oakWood' },
     progress: 3,
     goal: 5,
     rewards: [{ kind: 'gold', amount: 35 }],
@@ -100,7 +89,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q5',
     kind: 'beginner',
-    titleKey: 'UpgradeYourWeapon',
+    titleKey: 'quests.upgradeWeapon',
     progress: 0,
     goal: 1,
     rewards: [
@@ -115,51 +104,46 @@ const logEntries = ref<ActivityLogEntry[]>([
     id: 'a1',
     time: '14:14:33',
     icon: 'pickaxe',
-    textKey: 'YouGathered',
-    textParams: { count: 5, item: 'IronOre' },
+    textKey: 'activity.gathered',
+    textParams: { count: 5, item: 'items.ironOre' },
   },
   {
     id: 'a2',
     time: '11:37:24',
     icon: 'sword',
-    textKey: 'YouWonPvPMatchAgainst',
+    textKey: 'activity.wonPvP',
     textParams: { opponent: 'EidamWaiter' },
   },
   {
     id: 'a3',
     time: '09:38:42',
     icon: 'scroll',
-    textKey: 'YouCompletedMission',
-    textParams: { mission: 'SearchTheCave' },
+    textKey: 'activity.completedMission',
+    textParams: { mission: 'missions.searchTheCave' },
   },
   {
     id: 'a4',
     time: '00:57:11',
     icon: 'sword',
-    textKey: 'YouLostPvPMatchAgainst',
+    textKey: 'activity.lostPvP',
     textParams: { opponent: 'DarthSnoob47' },
   },
 ]);
 
 function fetchQuests() {
   loadingQuests.value = true;
-  // TODO: await store.fetchQuests()
   setTimeout(() => (loadingQuests.value = false), 600);
 }
 function claimAll() {
-  // TODO: store.claimAll()
   console.log('claim all');
 }
 function openQuest(id: string) {
-  // TODO: router push / modal
   console.log('open quest', id);
 }
 function claimQuest(id: string) {
-  // TODO: store.claim(id)
   console.log('claim quest', id);
 }
 function trackQuest(id: string) {
-  // TODO: store.track(id)
   console.log('track quest', id);
 }
 </script>

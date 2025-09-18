@@ -6,7 +6,6 @@
       :aria-valuemax="max"
       :aria-valuenow="value"
   >
-    <!-- bar -->
     <div :class="['relative w-full overflow-hidden', height, rounded, backgroundClass]">
       <div class="h-full transition-[width] duration-300 ease-out will-change-[width]" :class="colorClass" :style="fillStyle"/>
       <div v-if="showValue" class="absolute inset-0 flex items-center justify-center pointer-events-none">

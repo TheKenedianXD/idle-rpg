@@ -15,3 +15,48 @@
 .card {
     @apply rounded-lg border border-zinc-800 bg-zinc-900/60 p-4;
 }
+
+html { color-scheme: dark; }
+html, body, #app { scrollbar-gutter: stable both-edges; }
+
+.overflow-auto, .overflow-y-auto, .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148,163,184,.35) transparent;
+}
+@media (hover:hover) {
+    *:hover { scrollbar-color: rgba(148,163,184,.55) transparent; }
+}
+
+:root{
+    --sb-size: 12px;
+    --sb-pad: 4px;
+    --sb-thumb: rgba(148,163,184,.35);
+    --sb-thumb-hover: rgba(148,163,184,.55);
+}
+
+*::-webkit-scrollbar        { width: var(--sb-size); height: var(--sb-size); }
+*::-webkit-scrollbar-track  { background: transparent; }
+*::-webkit-scrollbar-thumb  {
+    background: var(--sb-thumb);
+    border-radius: 9999px;
+    border: var(--sb-pad) solid transparent;
+    background-clip: content-box;
+}
+@media (hover:hover) {
+    *:hover::-webkit-scrollbar-thumb        { background: var(--sb-thumb-hover); }
+    *:hover::-webkit-scrollbar-thumb:hover  { background: var(--sb-thumb-hover); }
+}
+*::-webkit-scrollbar-corner { background: transparent; }
+
+@layer base {
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        @apply appearance-none m-0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+}
