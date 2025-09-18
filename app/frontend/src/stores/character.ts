@@ -9,6 +9,7 @@ import type {
     StatBlock,
     DerivedStats
 } from '@/types/item';
+import { calcItemStats, calcWeaponStats } from "@/utils/calcItemStats";
 
 function uid() { return Math.random().toString(36).slice(2, 10); }
 type PickForSlot = { kind: 'armor' | 'weapon'; slot: ArmorSlot | WeaponSlot } | null;
@@ -16,7 +17,7 @@ type PickForSlot = { kind: 'armor' | 'weapon'; slot: ArmorSlot | WeaponSlot } | 
 export const useCharacterStore = defineStore('character', {
     state: () => ({
         name: "JohnnyMachete",
-        level: 107,
+        level: 21,
         rebirth: 1,
 
         xp: {
@@ -32,45 +33,43 @@ export const useCharacterStore = defineStore('character', {
         equipment: {} as Equipment,
 
         inventory: [
-            { id: uid(), name: 'SteelSword',  type: 'weapon', weaponClass: 'sword',  hand: 'oneHand',
+            { id: uid(), name: 'weapons.steelSword',  type: 'weapon', weaponClass: 'sword',  hand: 'oneHand',
                 rarity: 'epic', minDmg: 12, maxDmg: 18,
-                stats: { strength: 2, agility: 1 }, desc: '' },
+                stats: { strength: 2, agility: 1 }, attackSpeed: 1.3 },
 
-            { id: uid(), name: 'IronDagger',  type: 'weapon', weaponClass: 'dagger', hand: 'oneHand',
+            { id: uid(), name: 'weapons.ironDagger',  type: 'weapon', weaponClass: 'dagger', hand: 'oneHand',
                 rarity: 'uncommon', minDmg: 6, maxDmg: 9,
-                stats: { agility: 2 }, desc: '' },
+                stats: { agility: 2 },  attackSpeed: 0.7  },
 
-            { id: uid(), name: 'Greatsword',   type: 'weapon', weaponClass: 'sword',  hand: 'twoHand',
+            { id: uid(), name: 'weapons.greatsword',   type: 'weapon', weaponClass: 'sword',  hand: 'twoHand',
                 rarity: 'rare', minDmg: 20, maxDmg: 28,
-                stats: { strength: 4, endurance: 1 }, desc: '' },
+                stats: { strength: 4, endurance: 1 },  attackSpeed: 2.3  },
 
-            { id: uid(), name: 'RoundShield', type: 'weapon', weaponClass: 'shield', hand: 'offHandOnly',
+            { id: uid(), name: 'weapons.roundShield', type: 'weapon', weaponClass: 'shield', hand: 'offHandOnly',
                 rarity: 'rare', minDmg: 0, maxDmg: 0,
-                stats: { endurance: 2 }, desc: '' },
+                stats: { endurance: 2 }, armor: 7 },
 
-            { id: uid(), name: 'IronChest',   type: 'armor', slot: 'chest', armor: 18, rarity: 'rare',
-                armorClass: 'heavy' as const, stats: { endurance: 2 }, desc: '' },
+            { id: uid(), name: 'armor.ironChestpiece',   type: 'armor', slot: 'chest', armor: 18, rarity: 'rare',
+                armorClass: 'heavy' as const, upgrade: 13, stats: { endurance: 2 } },
 
-            { id: uid(), name: 'LeatherBoots', type: 'armor', slot: 'boots', armor: 6, rarity: 'uncommon',
-                armorClass: 'light' as const, upgrade: 15, stats: { agility: 2 }, desc: '' },
+            { id: uid(), name: 'armor.leatherBoots', type: 'armor', slot: 'boots', armor: 6, rarity: 'uncommon',
+                armorClass: 'light' as const, upgrade: 15, stats: { agility: 2 } },
 
-            { id: uid(), name: 'ClothGloves', type: 'armor', slot: 'gloves', armor: 2, rarity: 'common',
-                armorClass: 'light' as const, stats: { }, desc: '' },
+            { id: uid(), name: 'armor.clothGloves', type: 'armor', slot: 'gloves', armor: 2, rarity: 'common',
+                armorClass: 'light' as const, stats: { } },
 
-            { id: uid(), name: 'LeatherBelt', type: 'armor', slot: 'belt', armor: 3, rarity: 'uncommon',
-                armorClass: 'medium' as const, stats: { strength: 1 }, desc: '' },
+            { id: uid(), name: 'armor.leatherBelt', type: 'armor', slot: 'belt', armor: 3, rarity: 'uncommon',
+                armorClass: 'medium' as const, stats: { strength: 1 } },
 
-            { id: uid(), name: 'TravelerCloak', type: 'armor', slot: 'cloak', armor: 5, rarity: 'rare',
-                armorClass: 'light' as const, stats: { endurance: 1 }, desc: '' },
+            { id: uid(), name: 'armor.travelerCloak', type: 'armor', slot: 'cloak', armor: 5, rarity: 'rare',
+                armorClass: 'light' as const, stats: { endurance: 1 } },
 
-            { id: uid(), name: 'SilverRing',  type: 'armor', slot: 'ring', armor: 1, rarity: 'rare',
-                armorClass: 'light' as const, stats: { }, desc: '' },
+            { id: uid(), name: 'armor.silverRing',  type: 'armor', slot: 'ring', armor: 0, rarity: 'rare', stats: { endurance: 2 } },
 
-            { id: uid(), name: 'AmuletOfVigor', type: 'armor', slot: 'amulet', armor: 2, rarity: 'epic',
-                armorClass: 'light' as const, stats: { strength: 1, endurance: 1 }, desc: '' },
+            { id: uid(), name: 'armor.amuletOfVigor', type: 'armor', slot: 'amulet', armor: 0, rarity: 'epic', stats: { strength: 1, endurance: 1 } },
 
-            { id: uid(), name: 'Wood',          type: 'material', materialKind: 'wood',         rarity: 'common', qty: 37 },
-            { id: uid(), name: 'EssenceShard', type: 'material', materialKind: 'essenceShard', rarity: 'epic',   qty: 103 },
+            { id: uid(), name: 'material.wood',          type: 'material', materialKind: 'wood',         rarity: 'common', qty: 37 },
+            { id: uid(), name: 'material.essenceShard', type: 'material', materialKind: 'essenceShard', rarity: 'epic',   qty: 103 },
         ] as Item[],
 
         inventorySize: 88,
@@ -88,35 +87,93 @@ export const useCharacterStore = defineStore('character', {
             return hit?.[0];
         },
         unequippedInventory: (s) => s.inventory.filter(i => !Object.values(s.equipment).includes(i.id)),
+        totalArmor: (s): number => {
+            return Object.values(s.equipment)
+                .map(id => s.inventory.find(i => i.id === id))
+                .reduce((sum, it) => {
+                    if (!it) return sum;
+                    const scaled = calcItemStats(it, (s as any).derivedStats);
+                    return sum + (scaled.armorScaled ?? 0);
+                }, 0);
+        },
         derivedStats: (s): DerivedStats => {
             const base = (s as any).totalStats ? (s as any).totalStats : s.stats;
+            const armor = (s as any).totalArmor;
 
+            var effectiveArmor = armor / (armor + s.level * 5);
             return {
                 attackPower: base.strength * 2,
 
                 critChance: +(base.agility * 0.2).toFixed(1),
-                attackDelay: +(1 / (1 + base.agility * 0.02)).toFixed(2),
+                attackSpeed: +(1 + base.agility * 0.02).toFixed(2),
                 critDamage: 150 + base.agility * 0.5,
 
                 maxHealth: base.endurance * 10,
                 blockChance: +(base.endurance * 0.15).toFixed(1),
+
+                damageReduction: +(effectiveArmor * 30).toFixed(1),
+            };
+        },
+        weaponDamage: (s) => {
+            const mh = s.equipment.mainHand
+                ? (s.inventory.find(i => i.id === s.equipment.mainHand) as WeaponItem | undefined)
+                : undefined;
+            const oh = s.equipment.offHand
+                ? (s.inventory.find(i => i.id === s.equipment.offHand) as WeaponItem | undefined)
+                : undefined;
+
+            const derived = (s as any).derivedStats;
+
+            const mhDmg = calcWeaponStats(mh, derived);
+            const ohDmg = calcWeaponStats(oh, derived);
+
+            if (!mhDmg && !ohDmg) {
+                const min = 1 + Math.floor((derived.attackPower) * 0.2);
+                const max = 2 + Math.floor((derived.attackPower) * 0.2);
+                const avg = 1.5 + Math.floor((derived.attackPower) * 0.2);
+                const speed = 2.0;
+
+                return {
+                    mainHand: { baseMin: 1, baseMax: 2, min, max, avg, attackSpeed: speed, dps: +(avg / speed).toFixed(2) },
+                    offHand: null,
+                    combinedAvg: avg,
+                    combinedDps: +(avg / speed).toFixed(2)
+                };
+            }
+
+            const combinedAvg = mhDmg && ohDmg
+                ? (mhDmg.avg + ohDmg.avg) / 2
+                : mhDmg?.avg ?? ohDmg?.avg ?? 0;
+
+            const combinedDps = mhDmg && ohDmg
+                ? +(((mhDmg.dps ?? 0) + (ohDmg.dps ?? 0)) / 2).toFixed(2)
+                : mhDmg?.dps ?? ohDmg?.dps ?? 0;
+
+            return {
+                mainHand: mhDmg,
+                offHand: ohDmg,
+                combinedAvg,
+                combinedDps
             };
         },
         totalStats: (s) => {
-            const sum: Required<StatBlock> = { strength:0, agility:0, endurance:0,};
+            const sum: Required<StatBlock> = { strength: 0, agility: 0, endurance: 0 };
 
-            sum.strength     += s.stats.strength;
-            sum.agility      += s.stats.agility;
-            sum.endurance    += s.stats.endurance;
+            sum.strength  += s.stats.strength;
+            sum.agility   += s.stats.agility;
+            sum.endurance += s.stats.endurance;
 
             Object.values(s.equipment).forEach(id => {
                 const it = s.inventory.find(i => i.id === id);
-                const st = (it as any)?.stats as StatBlock | undefined;
-                if (!st) return;
-                if (st.strength)     sum.strength     += st.strength;
-                if (st.agility)      sum.agility      += st.agility;
-                if (st.endurance)    sum.endurance    += st.endurance;
+                if (!it) return;
+
+                const scaled = calcItemStats(it, (s as any).derivedStats);
+
+                if (scaled.statsScaled?.strength)  sum.strength  += scaled.statsScaled.strength;
+                if (scaled.statsScaled?.agility)   sum.agility   += scaled.statsScaled.agility;
+                if (scaled.statsScaled?.endurance) sum.endurance += scaled.statsScaled.endurance;
             });
+
             return sum;
         },
 
@@ -135,7 +192,7 @@ export const useCharacterStore = defineStore('character', {
 
             const derivedScore =
                 derived.maxHealth / 10 +
-                (1 / derived.attackDelay) * 20 +
+                (1 / derived.attackSpeed) * 20 +
                 derived.critChance * 2 +
                 derived.critDamage / 10 +
                 derived.blockChance * 2;

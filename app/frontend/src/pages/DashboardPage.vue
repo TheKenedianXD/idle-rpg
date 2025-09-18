@@ -38,7 +38,7 @@ import ActivityLog from '@/components/dashboard/ActivityLog.vue';
 
 const currentActivity = ref<CurrentActivity>({
   type: 'mission',
-  nameI18nKey: 'ScoutTheForest',
+  nameI18nKey: 'missions.scoutTheForest',
   durationSec: 1800,
   remainingSec: 1491,
   progress: 309,
@@ -54,7 +54,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q1',
     kind: 'daily',
-    titleKey: 'CompleteXMissions',
+    titleKey: 'quests.completeMissions',
     titleParams: { count: 5 },
     progress: 3,
     goal: 4,
@@ -63,7 +63,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q2',
     kind: 'daily',
-    titleKey: 'WinXPvPBattles',
+    titleKey: 'quests.winPvPBattles',
     titleParams: { count: 1 },
     progress: 0,
     goal: 1,
@@ -72,7 +72,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q3',
     kind: 'beginner',
-    titleKey: 'VisitTheShop',
+    titleKey: 'quests.visitShop',
     progress: 0,
     goal: 1,
     rewards: [{ kind: 'gold', amount: 5 }],
@@ -80,8 +80,8 @@ const quests = ref<Quest[]>([
   {
     id: 'q4',
     kind: 'beginner',
-    titleKey: 'ToGather',
-    titleParams: { count: 5, itemKey: 'OakWood' },
+    titleKey: 'quests.gatherItems',
+    titleParams: { count: 5, itemKey: 'items.oakWood' },
     progress: 3,
     goal: 5,
     rewards: [{ kind: 'gold', amount: 35 }],
@@ -89,7 +89,7 @@ const quests = ref<Quest[]>([
   {
     id: 'q5',
     kind: 'beginner',
-    titleKey: 'UpgradeYourWeapon',
+    titleKey: 'quests.upgradeWeapon',
     progress: 0,
     goal: 1,
     rewards: [
@@ -104,28 +104,28 @@ const logEntries = ref<ActivityLogEntry[]>([
     id: 'a1',
     time: '14:14:33',
     icon: 'pickaxe',
-    textKey: 'YouGathered',
-    textParams: { count: 5, item: 'IronOre' },
+    textKey: 'activity.gathered',
+    textParams: { count: 5, item: 'items.ironOre' },
   },
   {
     id: 'a2',
     time: '11:37:24',
     icon: 'sword',
-    textKey: 'YouWonPvPMatchAgainst',
+    textKey: 'activity.wonPvP',
     textParams: { opponent: 'EidamWaiter' },
   },
   {
     id: 'a3',
     time: '09:38:42',
     icon: 'scroll',
-    textKey: 'YouCompletedMission',
-    textParams: { mission: 'SearchTheCave' },
+    textKey: 'activity.completedMission',
+    textParams: { mission: 'missions.searchTheCave' },
   },
   {
     id: 'a4',
     time: '00:57:11',
     icon: 'sword',
-    textKey: 'YouLostPvPMatchAgainst',
+    textKey: 'activity.lostPvP',
     textParams: { opponent: 'DarthSnoob47' },
   },
 ]);

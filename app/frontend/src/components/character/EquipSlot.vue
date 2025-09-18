@@ -1,9 +1,11 @@
 ﻿<template>
   <button
-      class="relative rounded-lg border bg-zinc-900/40 border-zinc-800 hover:border-indigo-500/60 transition grid place-items-center cursor-pointer"
+      class="relative rounded-lg border bg-zinc-900/40 border-zinc-800  transition grid place-items-center"
       @click="onClick"
       :aria-label="label"
       :style="{ width: size, height: size }"
+      :disabled="locked"
+      :class="locked ? '' : 'hover:border-indigo-500/60 cursor-pointer'"
   >
     <template v-if="!equipped">
       <HelmIcon      v-if="slot==='helmet'"     class="w-10 h-10 md:w-11 md:h-11 opacity-5"/>
@@ -23,7 +25,7 @@
     <ItemCard v-else :item="equipped" @click.stop="emit('openItem', equipped.id)" />
 
     <div v-if="locked" class="absolute inset-0 bg-black/50 rounded-lg grid place-items-center text-[10px] text-zinc-300">
-      2H locked
+      {{$t('ui.lockedBy2H')}}
     </div>
   </button>
 </template>

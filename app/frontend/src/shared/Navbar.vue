@@ -15,11 +15,11 @@
           href="#"
           @click.prevent="ui.openSettings()"
       >
-        {{$t("Settings")}}
+        {{$t("common.settings")}}
       </a>
-      <a class="hidden lg:inline text-white hover:text-indigo-400 transition" href="#">{{$t("TOS")}}</a>
+      <a class="hidden lg:inline text-white hover:text-indigo-400 transition" href="#">{{$t("common.tos")}}</a>
       <a class="hidden lg:inline text-white hover:text-indigo-400 transition" href="#">Discord</a>
-      <a class="hidden lg:inline text-white hover:text-indigo-400 transition" href="#">{{$t("Changelog")}}</a>
+      <a class="hidden lg:inline text-white hover:text-indigo-400 transition" href="#">{{$t("common.changelog")}}</a>
 
       <LanguageSwitcherDropdown />
 
@@ -28,16 +28,16 @@
           v-if="auth.isAuthenticated"
           class="text-zinc-300 hover:text-white cursor-pointer transition"
           @click="logout">
-        {{$t("Logout")}}
+        {{$t("common.logout")}}
       </button>
     </nav>
 
     <div v-if="showConfirm" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/60">
       <div class="bg-zinc-900 border border-zinc-800 rounded-md p-4 w-[90%] max-w-sm">
-        <p class="mb-4">{{$t("AreYouSureYouWantToLogout")}}?</p>
+        <p class="mb-4">{{$t("common.areYouSureLogout")}}?</p>
         <div class="flex justify-end gap-2">
-          <button class="btn" @click="showConfirm=false">{{$t("Cancel")}}</button>
-          <button class="btn btn-primary" @click="confirmLogout">{{$t("Logout")}}</button>
+          <button class="btn" @click="showConfirm=false">{{$t("common.cancel")}}</button>
+          <button class="btn btn-primary" @click="confirmLogout">{{$t("common.logout")}}</button>
         </div>
       </div>
     </div>

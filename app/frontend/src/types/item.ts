@@ -11,6 +11,8 @@ export type WeaponHand  = 'oneHand' | 'twoHand' | 'offHandOnly';
 export type ArmorClass  = 'light' | 'medium' | 'heavy';
 export type WeaponClass = 'sword' | 'dagger' | 'shield';
 
+export type MaterialKind = 'wood' | 'essenceShard';
+
 export interface StatBlock {
     strength?: number;
     agility?: number;
@@ -22,9 +24,10 @@ export interface DerivedStats {
     maxHealth: number;
     blockChance: number;
     critChance: number;
-    attackDelay: number;
+    attackSpeed: number;
     critDamage: number;
     attackPower: number;
+    damageReduction: number;
     [key: string]: number | undefined;
 }
 
@@ -35,7 +38,6 @@ export interface BaseItem {
     rarity: Rarity;
     upgrade?: number;
     icon?: string;
-    desc?: string;
 }
 
 export interface ArmorItem extends BaseItem {
@@ -52,12 +54,14 @@ export interface WeaponItem extends BaseItem {
     hand: WeaponHand;
     minDmg: number;
     maxDmg: number;
+    attackSpeed?: number;
     stats?: StatBlock;
+    armor?: number;
 }
 
 export interface MaterialItem extends BaseItem {
     type: 'material';
-    materialKind: 'wood' | 'ore' | 'leather' | 'essenceShard' | 'misc';
+    materialKind: MaterialKind;
     qty: number;
 }
 

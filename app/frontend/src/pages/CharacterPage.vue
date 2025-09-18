@@ -2,27 +2,23 @@
   <div class="grid gap-6 lg:grid-cols-12">
     <section class="space-y-6 lg:col-span-5">
       <CharacterPanel
-          :title="$t('Character')"
+          :title="$t('page.character')"
           :showTitle="true"
           @pickForSlot="openPicker"
           @openItem="openInfo"
       >
-        <template #body>
-
-        </template>
       </CharacterPanel>
 
-      <ResourcesBox />
+      <StatsBox />
 
       <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex items-center justify-between">
-        <div class="text-zinc-300">{{$t("CombatPower")}}</div>
+        <div class="text-zinc-300">{{$t("stats.combatPower")}}</div>
         <div class="text-2xl font-semibold">{{ store.combatPower }}</div>
       </div>
-
-      <StatsBox />
     </section>
 
-    <aside class="lg:col-span-7 lg:top-14 self-start">
+    <aside class="lg:col-span-7 lg:top-14 self-start space-y-6">
+      <ResourcesBox hide-fame />
       <InventoryGrid
           :items="store.unequippedInventory"
           :size="store.inventorySize"

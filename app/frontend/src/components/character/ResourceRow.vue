@@ -5,7 +5,7 @@
       {{ label }}
     </dt>
     <dd>
-      <strong class="text-xl text-zinc-300">{{ value }}</strong>
+      <strong class="text-l text-zinc-300">{{ value }}</strong>
     </dd>
   </div>
 </template>

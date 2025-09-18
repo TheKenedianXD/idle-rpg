@@ -58,7 +58,7 @@ const armorLetter = computed<string | null>(() => {
   if (props.item.type !== 'armor') return null;
   const cls = (props.item as any).armorClass as 'light'|'medium'|'heavy'|undefined;
   if (!cls) return null;
-  const map = { light: 'Lig.', medium: 'Med.', heavy: 'Hea.', undefined: '' } as const;
+  const map = { light: 'armorClass.lightShort', medium: 'armorClass.mediumShort', heavy: 'armorClass.heavyShort', undefined: '' } as const;
   return map[cls] ?? null;
 });
 
@@ -66,7 +66,7 @@ const weaponHandText = computed<string | null>(() => {
   if (props.item.type !== 'weapon') return null;
   const hand = (props.item as any).hand as 'oneHand'|'twoHand'|'offHandOnly'|undefined;
   if (!hand) return null;
-  const map = { oneHand: 'One.', twoHand: 'Two.', offHandOnly: 'Off.' } as const;
+  const map = { oneHand: 'weaponClass.oneHandShort', twoHand: 'weaponClass.twoHandShort', offHandOnly: 'weaponClass.offHandShort' } as const;
   return map[hand] ?? null;
 });
 

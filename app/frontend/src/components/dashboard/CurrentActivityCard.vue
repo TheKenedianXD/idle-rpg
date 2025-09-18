@@ -1,13 +1,13 @@
 ﻿<template>
   <section class="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
-    <h2 class="text-2xl font-semibold mb-3">{{$t("CurrentActivity")}}</h2>
+    <h2 class="text-2xl font-semibold mb-3">{{$t("ui.currentActivity")}}</h2>
 
     <div class="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
       <div class="flex items-center justify-between">
         <div>
           <span>
             <TiedScrollIcon class="inline-block w-[1.3em] h-[1.3em]" aria-hidden="true"/>
-            {{ $t(activity.type === 'mission' ? 'Mission' : 'Activity') }}:
+            {{ activity.type === 'mission' ? $t('ui.mission') : $t('ui.activity') }}:
           </span>
           <span class="text-zinc-300"> {{ $t(activity.nameI18nKey) }}</span>
         </div>
@@ -20,7 +20,7 @@
       </div>
 
       <div class="mt-4">
-        <div class="text-sm text-zinc-500 mb-1">{{$t("Progress")}}</div>
+        <div class="text-sm text-zinc-500 mb-1">{{$t("common.progress")}}</div>
         <ProgressBar
             class="mt-2"
             :min="0"
@@ -31,7 +31,7 @@
       </div>
 
       <div class="mt-4">
-        <div class="text-sm text-zinc-500 mb-1">{{$t("Reward")}}</div>
+        <div class="text-sm text-zinc-500 mb-1">{{$t("common.reward")}}</div>
         <div class="flex items-center gap-3 text-zinc-300 flex-wrap">
           <template v-for="(r, i) in activity.rewards" :key="i">
             <span v-if="r.kind==='gold'"

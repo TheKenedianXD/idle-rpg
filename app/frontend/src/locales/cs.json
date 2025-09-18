@@ -1,58 +1,114 @@
 ﻿{
-  "AboutGame": "O hře",
-  "ActivityLog": "Záznam aktivit",
-  "AreYouSureYouWantToLogout": "Opravdu se chcete odhlásit",
-  "BeginnersQuests": "Začátečnické úkoly",
-  "ByContinuingYouAgreeTo": "Pokračováním souhlasíš s",
-  "Cancel": "Zrušit",
-  "Changelog": "Seznam změn",
-  "Character": "Postava",
-  "ClaimRewards": "Získat odměny",
-  "CompleteXMissions": "Dokonči {count}x misi",
-  "CreateAccount": "Založit účet",
-  "CurrentActivity": "Aktuální aktivita",
-  "DailyQuests": "Denní úkoly",
-  "Essence": "Esence",
-  "Experience": "Zkušenosti",
-  "Fame": "Sláva",
-  "GameDescription": {
-    "Card1": "Žádné klikačky – čisté systémy a progres",
-    "Card2": "PvP aréna, která působí realtimovým dojmem",
-    "Card3": "Dungeony, kde pocítíte dobývání",
-    "Card4": "Komplexní vybavení a vylepšovací systémy",
-    "Card5": "Idle ekonomika (těžba, zpracování, výroba)",
-    "Card6": "Po znovuzrení v sobě probudíš ještě větší sílu",
-    "Description": "Idle/inkrementální RPG inspirované mnoha skvělými prohlížečovými hrami. Probojujte se arénou, dobývajte dungeony nebo plňte mise. Na cestách sbírejte, zpracovávejte a craftujte!"
+  "actions": {
+    "claimRewards": "Získat odměny",
+    "equip": "Vybavit",
+    "sell": "Prodat",
+    "sellAll": "Prodat vše",
+    "toUpgrade": "Vylepšit",
+    "unequip": "Sundat"
   },
-  "Gold": "Zlato",
-  "IronOre": "Železná ruda",
-  "Level": "Úroveň",
-  "Login": "Přihlášení",
-  "LoginOrCreateAccountToStartTheGrind": "Přihlaš se a nebo zaregistruj a začni grind",
-  "Logout": "Odhlásit",
-  "Mission": "Mise",
-  "Nickname": "Přezdívka",
-  "OakWood": "Dubové dřevo",
-  "Password": "Heslo",
-  "Progress": "Postup",
-  "Quests": "Úkoly",
-  "Rebirth": "Znovuzrození",
-  "Refresh": "Obnovit",
-  "RegisterIn": "Registrace",
-  "Reward": "Odměna",
-  "ScoutTheForest": "Prozkoumej les",
-  "SearchTheCave": "Prozkoumej jeskyni",
-  "TOS": "Podmínky služby",
-  "ToGather": "Nasbírej {count}x @:{itemKey}",
-  "UpgradeYourWeapon": "Vylepši si zbraň",
-  "VisitTheShop": "Navštiv obchod",
-  "WinXPvPBattles": "Vyhraj {count}x PvP zápas",
-  "YouCompletedMission": "Splnil si misi: @:{mission}",
-  "YouGathered": "Nasbíral si {count}x @:{item}",
-  "YouLostPvPMatchAgainst": "Prohrál si PvP zápas proti {opponent}",
-  "YouWonPvPMatchAgainst": "Vyhrál si PvP zápas proti {opponent}",
+  "activity": {
+    "completedMission": "Splnil si misi: @:{mission}",
+    "gathered": "Nasbíral si {count}x @:{item}",
+    "lostPvP": "Prohrál si PvP zápas proti {opponent}",
+    "wonPvP": "Vyhrál si PvP zápas proti {opponent}"
+  },
   "app": {
     "brand": "Idle RPG"
+  },
+  "armor": {
+    "amuletOfVigor": "Amulet síly",
+    "clothGloves": "Látkové rukavice",
+    "ironChestpiece": "Železné náprsník",
+    "leatherBelt": "Kožený opasek",
+    "leatherBoots": "Kožené boty",
+    "silverRing": "Stříbrný prsten",
+    "travelerCloak": "Cestovní plášť"
+  },
+  "armorClass": {
+    "heavy": "Těžká",
+    "heavyShort": "Těž.",
+    "light": "Lehká",
+    "lightShort": "Leh.",
+    "medium": "Střední",
+    "mediumShort": "Stř."
+  },
+  "armorSlot": {
+    "amulet": "Amulet",
+    "belt": "Pásek",
+    "boots": "Boty",
+    "chest": "Tělo",
+    "cloak": "Kápě",
+    "gloves": "Rukavice",
+    "helmet": "Přilba",
+    "legs": "Kalhoty",
+    "ring": "Prsten",
+    "shoulders": "Ramena"
+  },
+  "common": {
+    "aboutGame": "O hře",
+    "areYouSureLogout": "Opravdu se chcete odhlásit",
+    "byContinuingYouAgreeTo": "Pokračováním souhlasíš s",
+    "cancel": "Zrušit",
+    "changelog": "Seznam změn",
+    "cost": "Cena",
+    "createAccount": "Založit účet",
+    "experience": "Zkušenosti",
+    "fame": "Sláva",
+    "level": "Úroveň",
+    "login": "Přihlášení",
+    "loginOrRegister": "Přihlaš se a nebo zaregistruj a začni grind",
+    "logout": "Odhlásit",
+    "nickname": "Přezdívka",
+    "password": "Heslo",
+    "progress": "Postup",
+    "quantity": "Množství",
+    "refresh": "Obnovit",
+    "register": "Registrace",
+    "resources": "Zdroje",
+    "reward": "Odměna",
+    "settings": "Nastavení",
+    "success": "Úspěch",
+    "tos": "Podmínky služby"
+  },
+  "currencies": {
+    "essence": "Esence",
+    "gold": "Zlato"
+  },
+  "gameDescription": {
+    "card1": "Žádné klikačky – čisté systémy a progres",
+    "card2": "PvP aréna, která působí realtimovým dojmem",
+    "card3": "Dungeony, kde pocítíte dobývání",
+    "card4": "Komplexní vybavení a vylepšovací systémy",
+    "card5": "Idle ekonomika (těžba, zpracování, výroba)",
+    "card6": "Po znovuzrení v sobě probudíš ještě větší sílu",
+    "description": "Idle/inkrementální RPG inspirované mnoha skvělými prohlížečovými hrami. Probojujte se arénou, dobývajte dungeony nebo plňte mise. Na cestách sbírejte, zpracovávejte a craftujte!"
+  },
+  "items": {
+    "armor": "Zbroj",
+    "ironOre": "Železná ruda",
+    "material": "Materiál",
+    "oakWood": "Dubové dřevo",
+    "weapon": "Zbraň"
+  },
+  "material": {
+    "essenceShard": "Zlomek esence",
+    "wood": "Dřevo"
+  },
+  "materialKind": {
+    "essenceShard": "Zlomek esence",
+    "wood": "Dřevo"
+  },
+  "messages": {
+    "gatherItems": "Nasbírej {count}x @:{itemKey}",
+    "youCompletedMission": "Splnil si misi: @:{mission}",
+    "youGathered": "Nasbíral si {count}x @:{item}",
+    "youLostPvP": "Prohrál si PvP zápas proti {opponent}",
+    "youWonPvP": "Vyhrál si PvP zápas proti {opponent}"
+  },
+  "missions": {
+    "scoutTheForest": "Prozkoumej les",
+    "searchTheCave": "Prozkoumej jeskyni"
   },
   "nav": {
     "arena": "Aréna (PvP)",
@@ -82,5 +138,86 @@
     "missions": "Mise",
     "processing": "Zpracování",
     "shop": "Obchod"
+  },
+  "quests": {
+    "beginnersQuests": "Začátečnické úkoly",
+    "completeMissions": "Dokonči {count}x misi",
+    "dailyQuests": "Denní úkoly",
+    "gatherItems": "Nasbírej {count}x @:{itemKey}",
+    "quests": "Úkoly",
+    "upgradeWeapon": "Vylepši si zbraň",
+    "visitShop": "Navštiv obchod",
+    "winPvPBattles": "Vyhraj {count}x PvP zápas"
+  },
+  "rarity": {
+    "common": "Obyčejný",
+    "epic": "Epický",
+    "legendary": "Legendární",
+    "rare": "Vzácný",
+    "uncommon": "Neobyčejný"
+  },
+  "stats": {
+    "agility": "Obratnost",
+    "agilityTooltipDesc": "Vylepší rychlost a kritické útoky",
+    "armor": "Brnění",
+    "armorTooltipDesc": "Vyšší hodnota armoru zvyšuje míru snížení poškození, které obdržíš od nepřátel",
+    "attackPower": "Síla útoků",
+    "attackSpeed": "Rychlost útoků",
+    "blockChance": "Šance na blok",
+    "combatPower": "Bojová síla",
+    "criticalChance": "Kritický zásah",
+    "criticalDamage": "Kritické poškození",
+    "endurance": "Vytrvalost",
+    "enduranceTooltipDesc": "Zlepšuje odolnost a obranyschopnost",
+    "maxHealth": "Maximální životy",
+    "rebirth": "Znovuzrození",
+    "strength": "Síla",
+    "strengthTooltipDesc": "Vylepší tvojí sílu fyzických útoků",
+    "weapon": "Zbraň",
+    "weaponTooltipDesc": "Síla poškození tvé zbraně se odvíjí od Attack Poweru a určuje rozsah minimálního a maximálního poškození"
+  },
+  "ui": {
+    "activity": "Aktivita",
+    "activityLog": "Záznam aktivit",
+    "cannotEquipHere": "Toto zde nelze nasadit",
+    "cannotSellEquippedItem": "Nelze prodat nasazený předmět",
+    "character": "Postava",
+    "characterAttributes": "Atributy postavy",
+    "chooseItemFor": "Vybrat předmět pro",
+    "currentActivity": "Aktuální aktivita",
+    "damage": "Poškození",
+    "enableItemComparison": "Porovnávat předměty",
+    "equipped": "Nasazeno",
+    "inventory": "Inventář",
+    "lockedBy2H": "Obouruční",
+    "maxUpgrade": "Maximální vylepšení",
+    "mission": "Mise",
+    "noCompatibleItems": "Žádné vhodné předměty",
+    "unequipped": "Sundáno",
+    "upgradeFailed": "Vylepšení selhalo",
+    "upgraded": "Vylepšeno"
+  },
+  "weaponClass": {
+    "dagger": "Dýka",
+    "offHandShort": "Ved.",
+    "oneHandShort": "Jed.",
+    "shield": "Štít",
+    "sword": "Meč",
+    "twoHandShort": "Obo."
+  },
+  "weaponHand": {
+    "offHandOnly": "Vedlejší",
+    "oneHand": "Jednoruční",
+    "twoHand": "Obouruční"
+  },
+  "weaponSlot": {
+    "mainHand": "Hlavní ruka",
+    "offHand": "Vedlejší ruka"
+  },
+  "weapons": {
+    "greatsword": "Velký meč",
+    "ironDagger": "Železná dýka",
+    "roundShield": "Kulatý štít",
+    "steelSword": "Ocelový meč"
   }
 }

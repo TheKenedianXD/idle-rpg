@@ -1,58 +1,114 @@
 ﻿{
-  "AboutGame": "About game",
-  "ActivityLog": "Activity log",
-  "AreYouSureYouWantToLogout": "Are you sure you want to logout",
-  "BeginnersQuests": "Beginners quests",
-  "ByContinuingYouAgreeTo": "By continuing you agree to",
-  "Cancel": "Cancel",
-  "Changelog": "Changelog",
-  "Character": "Character",
-  "ClaimRewards": "Claim rewards",
-  "CompleteXMissions": "Complete {count}x mission",
-  "CreateAccount": "Create account",
-  "CurrentActivity": "Current activity",
-  "DailyQuests": "Daily quests",
-  "Essence": "Essence",
-  "Experience": "Experience",
-  "Fame": "Fame",
-  "GameDescription": {
-    "Card1": "No more clicking - pure systems and progress",
-    "Card2": "PvP arena that feels realtime",
-    "Card3": "Dungeons to feel the conquer",
-    "Card4": "Complex gear and upgrade systems",
-    "Card5": "Idle economy (gathering, processing, crafting)",
-    "Card6": "Rebirth your character to wake up even more strength in you",
-    "Description": "Idle/Incremental RPG inspired by many great browser games. Battle through arena, conquer dungeons or finish missions. On your travel idle gathering, processing and crafting!"
+  "actions": {
+    "claimRewards": "Claim rewards",
+    "equip": "Equip",
+    "sell": "Sell",
+    "sellAll": "Sell all",
+    "toUpgrade": "Upgrade",
+    "unequip": "Unequip"
   },
-  "Gold": "Gold",
-  "IronOre": "Iron ore",
-  "Level": "Level",
-  "Login": "Login",
-  "LoginOrCreateAccountToStartTheGrind": "Login or create an account to start the grind",
-  "Logout": "Logout",
-  "Mission": "Mission",
-  "Nickname": "Nickname",
-  "OakWood": "Oak wood",
-  "Password": "Password",
-  "Progress": "Progress",
-  "Quests": "Quests",
-  "Rebirth": "Rebirth",
-  "Refresh": "Refresh",
-  "RegisterIn": "Registration",
-  "Reward": "Reward",
-  "ScoutTheForest": "Scout the forest",
-  "SearchTheCave": "Search the cave",
-  "TOS": "Terms of Service",
-  "ToGather": "Gather {count}x @:{itemKey}",
-  "UpgradeYourWeapon": "Upgrade your weapon",
-  "VisitTheShop": "Visit the shop",
-  "WinXPvPBattles": "Win {count}x PvP Battle",
-  "YouCompletedMission": "You completed mission: @:{mission}",
-  "YouGathered": "You gathered {count}x @:{item}",
-  "YouLostPvPMatchAgainst": "You lost PvP match against {opponent}",
-  "YouWonPvPMatchAgainst": "You won PvP match against {opponent}",
+  "activity": {
+    "completedMission": "You completed mission: @:{mission}",
+    "gathered": "You gathered {count}x @:{item}",
+    "lostPvP": "You lost a PvP match against {opponent}",
+    "wonPvP": "You won a PvP match against {opponent}"
+  },
   "app": {
     "brand": "Idle RPG"
+  },
+  "armor": {
+    "amuletOfVigor": "Amulet of vigor",
+    "clothGloves": "Cloth gloves",
+    "ironChestpiece": "Iron chestpiece",
+    "leatherBelt": "Leather belt",
+    "leatherBoots": "Leather boots",
+    "silverRing": "Silver ring",
+    "travelerCloak": "Traveler cloak"
+  },
+  "armorClass": {
+    "heavy": "Heavy",
+    "heavyShort": "Hea.",
+    "light": "Light",
+    "lightShort": "Lig.",
+    "medium": "Medium",
+    "mediumShort": "Med."
+  },
+  "armorSlot": {
+    "amulet": "Amulet",
+    "belt": "Belt",
+    "boots": "Boots",
+    "chest": "Chest",
+    "cloak": "Cloak",
+    "gloves": "Gloves",
+    "helmet": "Helmet",
+    "legs": "Legs",
+    "ring": "Ring",
+    "shoulders": "Shoulders"
+  },
+  "common": {
+    "aboutGame": "About game",
+    "areYouSureLogout": "Are you sure you want to logout",
+    "byContinuingYouAgreeTo": "By continuing you agree to",
+    "cancel": "Cancel",
+    "changelog": "Changelog",
+    "cost": "Cost",
+    "createAccount": "Create account",
+    "experience": "Experience",
+    "fame": "Fame",
+    "level": "Level",
+    "login": "Login",
+    "loginOrRegister": "Login or create an account to start the grind",
+    "logout": "Logout",
+    "nickname": "Nickname",
+    "password": "Password",
+    "progress": "Progress",
+    "quantity": "Quantity",
+    "refresh": "Refresh",
+    "register": "Registration",
+    "resources": "Resources",
+    "reward": "Reward",
+    "settings": "Settings",
+    "success": "Success",
+    "tos": "Terms of Service"
+  },
+  "currencies": {
+    "essence": "Essence",
+    "gold": "Gold"
+  },
+  "gameDescription": {
+    "card1": "No more clicking – pure systems and progress",
+    "card2": "PvP arena that feels realtime",
+    "card3": "Dungeons to feel the conquer",
+    "card4": "Complex gear and upgrade systems",
+    "card5": "Idle economy (gathering, processing, crafting)",
+    "card6": "Rebirth your character to awaken even greater strength",
+    "description": "Idle/incremental RPG inspired by many great browser games. Battle through the arena, conquer dungeons or complete missions. Along the way, gather, process and craft!"
+  },
+  "items": {
+    "armor": "Armor",
+    "ironOre": "Iron ore",
+    "material": "Material",
+    "oakWood": "Oak wood",
+    "weapon": "Weapon"
+  },
+  "material": {
+    "essenceShard": "Essence shard",
+    "wood": "Wood"
+  },
+  "materialKind": {
+    "essenceShard": "Essence shard",
+    "wood": "Wood"
+  },
+  "messages": {
+    "gatherItems": "Gather {count}x @:{itemKey}",
+    "youCompletedMission": "You completed mission: @:{mission}",
+    "youGathered": "You gathered {count}x @:{item}",
+    "youLostPvP": "You lost a PvP match against {opponent}",
+    "youWonPvP": "You won a PvP match against {opponent}"
+  },
+  "missions": {
+    "scoutTheForest": "Scout the forest",
+    "searchTheCave": "Search the cave"
   },
   "nav": {
     "arena": "Arena (PvP)",
@@ -82,5 +138,86 @@
     "missions": "Missions",
     "processing": "Processing",
     "shop": "Shop"
+  },
+  "quests": {
+    "beginnersQuests": "Beginners quests",
+    "completeMissions": "Complete {count}x mission",
+    "dailyQuests": "Daily quests",
+    "gatherItems": "Gather {count}x @:{itemKey}",
+    "quests": "Quests",
+    "upgradeWeapon": "Upgrade your weapon",
+    "visitShop": "Visit the shop",
+    "winPvPBattles": "Win {count}x PvP battle"
+  },
+  "rarity": {
+    "common": "Common",
+    "epic": "Epic",
+    "legendary": "Legendary",
+    "rare": "Rare",
+    "uncommon": "Uncommon"
+  },
+  "stats": {
+    "agility": "Agility",
+    "agilityTooltipDesc": "Improves speed and critical strikes",
+    "armor": "Armor",
+    "armorTooltipDesc": "Higher armor increases the percentage of damage reduction you receive from enemies",
+    "attackPower": "Attack power",
+    "attackSpeed": "Attack speed",
+    "blockChance": "Block chance",
+    "combatPower": "Combat power",
+    "criticalChance": "Critical chance",
+    "criticalDamage": "Critical damage",
+    "endurance": "Endurance",
+    "enduranceTooltipDesc": "Improves survivability and defenses",
+    "maxHealth": "Max health",
+    "rebirth": "Rebirth",
+    "strength": "Strength",
+    "strengthTooltipDesc": "Increases your physical attack power",
+    "weapon": "Weapon",
+    "weaponTooltipDesc": "Your weapon's damage is based on Attack Power and determines the range of minimum and maximum damage"
+  },
+  "ui": {
+    "activity": "Activity",
+    "activityLog": "Activity log",
+    "cannotEquipHere": "Cannot equip here",
+    "cannotSellEquippedItem": "Cannot sell equipped item",
+    "character": "Character",
+    "characterAttributes": "Character attributes",
+    "chooseItemFor": "Choose item for",
+    "currentActivity": "Current activity",
+    "damage": "Damage",
+    "enableItemComparison": "Compare items",
+    "equipped": "Equipped",
+    "inventory": "Inventory",
+    "lockedBy2H": "Two handed",
+    "maxUpgrade": "Max upgrade",
+    "mission": "Mission",
+    "noCompatibleItems": "No compatible items",
+    "unequipped": "Unequipped",
+    "upgradeFailed": "Upgrade failed",
+    "upgraded": "Upgraded"
+  },
+  "weaponClass": {
+    "dagger": "Dagger",
+    "offHandShort": "Off",
+    "oneHandShort": "One.",
+    "shield": "Shield",
+    "sword": "Sword",
+    "twoHandShort": "Two."
+  },
+  "weaponHand": {
+    "offHandOnly": "Off hand",
+    "oneHand": "One hand",
+    "twoHand": "Two hand"
+  },
+  "weaponSlot": {
+    "mainHand": "Main hand",
+    "offHand": "Off hand"
+  },
+  "weapons": {
+    "greatsword": "Greatsword",
+    "ironDagger": "Iron dagger",
+    "roundShield": "Round shield",
+    "steelSword": "Steel sword"
   }
 }

@@ -7,7 +7,7 @@
     <div class="w-full max-w-lg rounded-xl bg-zinc-900 border border-zinc-800 p-4">
       <header class="flex items-center justify-between mb-3">
         <h3 class="text-lg font-semibold">
-          {{$t("ChooseItemFor")}} <span class="text-indigo-400">{{ $t(label) }}</span>
+          {{$t("ui.chooseItemFor")}} <span class="text-indigo-400">{{ $t(label) }}</span>
         </h3>
         <button class="text-zinc-400 hover:text-white" @click="close()">✕</button>
       </header>
@@ -27,7 +27,7 @@
       </div>
 
       <p v-if="filtered.length === 0" class="text-zinc-400 mt-2">
-        {{$t("NoCompatibleItems")}}
+        {{$t("ui.noCompatibleItems")}}
       </p>
     </div>
   </div>
@@ -51,7 +51,12 @@ const emit = defineEmits<{
 
 const store = useCharacterStore();
 
-const label = computed(() => props.slot ?? '');
+const label = computed(() => {
+  if (!props.slot) return '';
+  if (props.kind === 'armor') return `armorSlot.${props.slot}`;
+  if (props.kind === 'weapon') return `weaponSlot.${props.slot}`;
+  return props.slot;
+});
 
 const filtered = computed<Item[]>(() => {
   if (!props.open || !props.slot) return [];

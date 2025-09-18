@@ -1,6 +1,6 @@
 ﻿<template>
   <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 h-full flex flex-col">
-    <h3 class="text-xl font-semibold mb-3">{{$t("Inventory")}}</h3>
+    <h3 class="text-xl font-semibold mb-3">{{$t("ui.inventory")}}</h3>
 
     <div class="overflow-auto pr-1 grow overscroll-contain nice-scroll"
          :style="{ maxHeight: `calc(100vh - 200px)` }">

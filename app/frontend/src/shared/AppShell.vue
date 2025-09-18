@@ -6,7 +6,7 @@
       <aside
           class="hidden lg:block w-[260px] shrink-0 border-r border-zinc-800 p-3 lg:p-4
                sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
-          <Sidebar />
+        <Sidebar />
       </aside>
 
       <main class="flex-1 min-w-0 p-4 lg:p-6">
@@ -52,11 +52,11 @@
                 href="#"
                 @click.prevent="ui.closeSidebar(); ui.openSettings();"
             >
-              {{$t("Settings")}}
+              {{$t("common.settings")}}
             </a>
-            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("TOS")}}</a>
+            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("common.tos")}}</a>
             <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">Discord</a>
-            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("Changelog")}}</a>
+            <a class="block text-zinc-300 text-center hover:text-indigo-400" href="#">{{$t("common.changelog")}}</a>
           </div>
         </aside>
       </transition>

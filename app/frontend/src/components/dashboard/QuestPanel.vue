@@ -1,19 +1,19 @@
 ﻿<template>
   <aside class="lg:w-[380px] rounded-lg border border-zinc-800 bg-zinc-900/50 p-5">
     <header class="mb-4 flex items-center justify-between">
-      <h2 class="text-2xl font-semibold">{{$t("Quests")}}</h2>
+      <h2 class="text-2xl font-semibold">{{$t("quests.quests")}}</h2>
 
       <div class="flex items-center gap-2">
         <button class="px-2 py-1 rounded border border-zinc-800 text-sm hover:bg-zinc-800/60 cursor-pointer"
                 @click="$emit('refresh')"
                 :disabled="loading">
-          {{$t("Refresh")}}
+          {{$t("common.refresh")}}
         </button>
 
         <button class="px-2 py-1 rounded border border-green-800 text-sm hover:bg-green-800/60 cursor-pointer"
                 @click="$emit('claim-all')"
                 :disabled="!canClaimAny || loading">
-          {{$t("ClaimRewards")}}
+          {{$t("actions.claimRewards")}}
         </button>
       </div>
     </header>
@@ -35,7 +35,7 @@
       <div class="space-y-6">
         <section v-if="daily.length">
           <div class="mb-2 font-medium text-zinc-300 flex items-center justify-between">
-            <span>{{$t("DailyQuests")}}</span>
+            <span>{{$t("quests.dailyQuests")}}</span>
             <span class="text-xs text-zinc-500">
               {{ completedCount(daily) }} / {{ daily.length }}
             </span>
@@ -52,7 +52,7 @@
 
         <section v-if="beginners.length">
           <div class="mb-2 font-medium text-zinc-300 flex items-center justify-between">
-            <span>{{$t("BeginnersQuests")}}</span>
+            <span>{{$t("quests.beginnersQuests")}}</span>
             <span class="text-xs text-zinc-500">
               {{ completedCount(beginners) }} / {{ beginners.length }}
             </span>
@@ -61,9 +61,9 @@
               :quests="beginners"
               :show-progress="true"
               icon="auto"
-          @open="$emit('open', $event)"
-          @claim="$emit('claim', $event)"
-          @track="$emit('track', $event)"
+              @open="$emit('open', $event)"
+              @claim="$emit('claim', $event)"
+              @track="$emit('track', $event)"
           />
         </section>
       </div>
@@ -84,17 +84,6 @@ const props = defineProps<{
   activeTab?: string;
 }>();
 
-/*
-const emit = defineEmits<{
-  (e:'refresh'): void;
-  (e:'claim-all'): void;
-  (e:'open', questId: string): void;
-  (e:'claim', questId: string): void;
-  (e:'track', questId: string): void;
-  (e:'update:activeTab', key: string): void;
-}>();
-*/
-
 const daily = computed(()=> props.quests.filter(q => q.kind==='daily'));
 const beginners = computed(()=> props.quests.filter(q => q.kind==='beginner'));
 
@@ -108,8 +97,8 @@ function completedCount(list: Quest[]) {
 
 const tabs = [
   { key:'all',       label:'All' },
-  { key:'daily',     label:'DailyQuests' },
-  { key:'beginner',  label:'BeginnersQuests' },
+  { key:'daily',     label:'quests.dailyQuests' },
+  { key:'beginner',  label:'quests.beginnersQuests' },
   { key:'completed', label:'Completed' },
 ];
 </script>
